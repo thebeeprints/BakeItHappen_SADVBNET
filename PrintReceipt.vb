@@ -2,21 +2,24 @@
 
 Public Class PrintReceipt
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        'Dim printDialog As New PrintDialog()
-        'PrintDialog.Document = PrintDocument1
-        'If printDialog.ShowDialog() = DialogResult.OK Then
+        PrintPreviewDialog1.Document = PrintDocument1
+        PrintDocument1.DefaultPageSettings.PaperSize = New PaperSize("Custom", Me.Width, Me.Height)
+        PrintPreviewDialog1.ClientSize = Me.Size
+        PrintPreviewDialog1.ShowDialog()
+    End Sub
 
-        'PrintPreviewDialog1.Document = PrintDocument1
+    Private Sub PrintReceipt_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        'PrintPreviewDialog1.ShowDialog()
+    End Sub
 
-        'PrintDocument1.PrinterSettings = printDialog.PrinterSettings
+    Private Sub PrintDocument1_PrintPage(sender As Object, e As PrintPageEventArgs) Handles PrintDocument1.PrintPage
+        Button1.BackColor = Color.White
+        Dim bmp As New Bitmap(Me.Width, Me.Height)
+        Me.DrawToBitmap(bmp, New Rectangle(0, 0, Me.Width, Me.Height))
+        e.Graphics.DrawImage(bmp, 0, 0)
+    End Sub
 
-        'PrintDocument1.Print()
-
-        'Receipt_GV.Rows.Clear()
-        'Cashier_Order.DataGridView1.Rows.Clear()
-
-        'End If
+    Private Sub PrintPreviewDialog1_FormClosed(sender As Object, e As FormClosedEventArgs) Handles PrintPreviewDialog1.FormClosed
+        Button1.BackColor = ColorTranslator.FromHtml("#602A0F")
     End Sub
 End Class

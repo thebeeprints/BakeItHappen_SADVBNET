@@ -32,7 +32,7 @@ Namespace My
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.BakeItHappen_SADVBNET.SignIn
+            Me.MainForm = Global.BakeItHappen_SADVBNET.PrintReceipt
         End Sub
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
