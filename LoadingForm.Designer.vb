@@ -31,6 +31,7 @@ Partial Class LoadingForm
         'Timer1
         '
         Me.Timer1.Enabled = True
+        Me.Timer1.Interval = 50
         '
         'ProgressBar1
         '
@@ -46,7 +47,7 @@ Partial Class LoadingForm
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Palatino Linotype", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(425, 471)
+        Me.Label1.Location = New System.Drawing.Point(411, 471)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(85, 31)
         Me.Label1.TabIndex = 2

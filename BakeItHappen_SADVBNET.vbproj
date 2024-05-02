@@ -48,10 +48,81 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FirebaseAdmin, Version=2.4.1.0, Culture=neutral, PublicKeyToken=97c8d00c348326ed, processorArchitecture=MSIL">
+      <HintPath>packages\FirebaseAdmin.2.4.1\lib\net461\FirebaseAdmin.dll</HintPath>
+    </Reference>
+    <Reference Include="FireSharp, Version=2.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\FireSharp.2.0.4\lib\portable-net45+sl5+wp8+win8\FireSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Api.Gax, Version=3.2.0.0, Culture=neutral, PublicKeyToken=3ec5ea7f18953e47, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Api.Gax.3.2.0\lib\net461\Google.Api.Gax.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Api.Gax.Rest, Version=3.2.0.0, Culture=neutral, PublicKeyToken=3ec5ea7f18953e47, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Api.Gax.Rest.3.2.0\lib\net461\Google.Api.Gax.Rest.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis, Version=1.49.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Apis.1.49.0\lib\net45\Google.Apis.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth, Version=1.49.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Apis.Auth.1.49.0\lib\net45\Google.Apis.Auth.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth.PlatformServices, Version=1.49.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Apis.Auth.1.49.0\lib\net45\Google.Apis.Auth.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Core, Version=1.49.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Apis.Core.1.49.0\lib\net45\Google.Apis.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.PlatformServices, Version=1.49.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Apis.1.49.0\lib\net45\Google.Apis.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.1.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions.Desktop, Version=1.0.168.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.Desktop.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=1.2.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Collections.Immutable.1.7.1\lib\net461\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.28.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Net.Http.2.2.28\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.28.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Net.Http.2.2.28\lib\net45\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -79,12 +150,34 @@
     <Compile Include="AdminInterface.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="AuthenticationHelper.vb" />
+    <Compile Include="Cashier_Order.Designer.vb">
+      <DependentUpon>Cashier_Order.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Cashier_Order.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Cashier_Interface.Designer.vb">
       <DependentUpon>Cashier_Interface.vb</DependentUpon>
     </Compile>
     <Compile Include="Cashier_Interface.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Cashier_Settings.Designer.vb">
+      <DependentUpon>Cashier_Settings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Cashier_Settings.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DailyAttendance.Designer.vb">
+      <DependentUpon>DailyAttendance.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DailyAttendance.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AttendanceDataModel.vb" />
+    <Compile Include="EmployeeImageDataModel.vb" />
+    <Compile Include="FireBaseApp.vb" />
     <Compile Include="LoadingForm.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -108,19 +201,42 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Ordering.Designer.vb">
+      <DependentUpon>Ordering.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ordering.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrintReceipt.Designer.vb">
+      <DependentUpon>PrintReceipt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PrintReceipt.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImageBase64Converter.vb" />
     <Compile Include="SignIn.Designer.vb">
       <DependentUpon>SignIn.vb</DependentUpon>
     </Compile>
     <Compile Include="SignIn.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="UserDataModel.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AdminInterface.resx">
       <DependentUpon>AdminInterface.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Cashier_Order.resx">
+      <DependentUpon>Cashier_Order.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Cashier_Interface.resx">
       <DependentUpon>Cashier_Interface.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cashier_Settings.resx">
+      <DependentUpon>Cashier_Settings.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DailyAttendance.resx">
+      <DependentUpon>DailyAttendance.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoadingForm.resx">
       <DependentUpon>LoadingForm.vb</DependentUpon>
@@ -130,6 +246,12 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ordering.resx">
+      <DependentUpon>Ordering.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintReceipt.resx">
+      <DependentUpon>PrintReceipt.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SignIn.resx">
       <DependentUpon>SignIn.vb</DependentUpon>
@@ -148,6 +270,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="Resources\LoadingForm BG.png" />
   </ItemGroup>
   <ItemGroup>
@@ -171,5 +294,67 @@
   <ItemGroup>
     <None Include="Resources\Logo1.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Order.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HideUnhide %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HideUnhide %282%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ORDER BUTTON.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CASHINT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Order %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CASHINT %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SETTING BUTTON.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OrderButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SettingsButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CashierInterface.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CashierInterface1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CashierOrder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MagnifyingGlass %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CashierOrderFinal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Stock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CashierSettings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PrintReceipt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DailyAttendance.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <Import Project="packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
 </Project>

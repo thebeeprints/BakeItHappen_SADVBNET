@@ -22,21 +22,21 @@ Partial Class SignIn
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.Username = New System.Windows.Forms.TextBox()
+        Me.username_txt = New System.Windows.Forms.TextBox()
         Me.Sign_In = New System.Windows.Forms.Button()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.password_txt = New System.Windows.Forms.TextBox()
         Me.HideButton = New System.Windows.Forms.PictureBox()
         CType(Me.HideButton, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'Username
+        'username_txt
         '
-        Me.Username.Font = New System.Drawing.Font("Palatino Linotype", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Username.Location = New System.Drawing.Point(337, 320)
-        Me.Username.Multiline = True
-        Me.Username.Name = "Username"
-        Me.Username.Size = New System.Drawing.Size(433, 44)
-        Me.Username.TabIndex = 0
+        Me.username_txt.Font = New System.Drawing.Font("Palatino Linotype", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.username_txt.Location = New System.Drawing.Point(337, 320)
+        Me.username_txt.Name = "username_txt"
+        Me.username_txt.Size = New System.Drawing.Size(433, 44)
+        Me.username_txt.TabIndex = 0
+        Me.username_txt.Text = "Username"
         '
         'Sign_In
         '
@@ -50,15 +50,15 @@ Partial Class SignIn
         Me.Sign_In.Text = "Sign In"
         Me.Sign_In.UseVisualStyleBackColor = False
         '
-        'TextBox1
+        'password_txt
         '
-        Me.TextBox1.Font = New System.Drawing.Font("Palatino Linotype", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(337, 403)
-        Me.TextBox1.Multiline = True
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(433, 44)
-        Me.TextBox1.TabIndex = 6
-        Me.TextBox1.UseSystemPasswordChar = True
+        Me.password_txt.Font = New System.Drawing.Font("Palatino Linotype", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.password_txt.Location = New System.Drawing.Point(337, 403)
+        Me.password_txt.Name = "password_txt"
+        Me.password_txt.Size = New System.Drawing.Size(433, 44)
+        Me.password_txt.TabIndex = 6
+        Me.password_txt.Text = "Password"
+        Me.password_txt.UseSystemPasswordChar = True
         '
         'HideButton
         '
@@ -81,9 +81,9 @@ Partial Class SignIn
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1060, 582)
         Me.Controls.Add(Me.HideButton)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.password_txt)
         Me.Controls.Add(Me.Sign_In)
-        Me.Controls.Add(Me.Username)
+        Me.Controls.Add(Me.username_txt)
         Me.DoubleBuffered = True
         Me.Name = "SignIn"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -94,8 +94,8 @@ Partial Class SignIn
 
     End Sub
 
-    Friend WithEvents Username As TextBox
+    Friend WithEvents username_txt As TextBox
     Friend WithEvents Sign_In As Button
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents password_txt As TextBox
     Friend WithEvents HideButton As PictureBox
 End Class

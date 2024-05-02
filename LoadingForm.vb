@@ -6,7 +6,7 @@ Public Class LoadingForm
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         ProgressBar1.Value = ProgressBar1.Value + 1
         i += 1
-        Label1.Text = "Process " & i & " % completed..."
+        Label1.Text = "Process " & i & "% completed..."
         If i >= 100 Then
             Timer1.Enabled = False
             SignIn.Show()

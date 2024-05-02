@@ -5,6 +5,13 @@ VisualStudioVersion = 17.8.34525.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "BakeItHappen_SADVBNET", "BakeItHappen_SADVBNET.vbproj", "{418A4A27-31D6-46C1-BD01-6BCFB8B76077}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{424850C0-2C13-44F5-AE66-4DF4EBACD60A}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\BakeItHappen_SADVBNET\SignIn.Designer.vb = ..\..\..\BakeItHappen_SADVBNET\SignIn.Designer.vb
+		..\..\..\BakeItHappen_SADVBNET\SignIn.resx = ..\..\..\BakeItHappen_SADVBNET\SignIn.resx
+		..\..\..\BakeItHappen_SADVBNET\SignIn.vb = ..\..\..\BakeItHappen_SADVBNET\SignIn.vb
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
