@@ -36,8 +36,8 @@ Public Class SignIn
                     isUserAdmin = True
                     AdminInterface.Show()
                 Else
-                    Cashier_Settings.Show()
-                    'DailyAttendance.Show()
+                    'Cashier_Settings.Show()
+                    DailyAttendance.Show()
 
                     'Cashier_Interface.Show()
                 End If
@@ -61,5 +61,8 @@ Public Class SignIn
         Return user.ID
     End Function
 
+    Public Function getFullName()
+        Return $"{user.FirstName} {user.LastName}"
+    End Function
 
 End Class

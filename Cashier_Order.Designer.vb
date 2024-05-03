@@ -73,7 +73,7 @@ Partial Class Cashier_Order
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Arial Rounded MT Bold", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.SaddleBrown
-        Me.Label1.Location = New System.Drawing.Point(335, 91)
+        Me.Label1.Location = New System.Drawing.Point(316, 91)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(73, 21)
         Me.Label1.TabIndex = 0
@@ -97,14 +97,14 @@ Partial Class Cashier_Order
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(157, 24)
         Me.ComboBox1.TabIndex = 1
-        Me.ComboBox1.UseWaitCursor = True
         '
         'FlowLayoutPanel1
         '
-        Me.FlowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 86)
+        Me.FlowLayoutPanel1.AutoScroll = True
+        Me.FlowLayoutPanel1.BackColor = System.Drawing.SystemColors.Control
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(6, 121)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(569, 428)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(563, 393)
         Me.FlowLayoutPanel1.TabIndex = 1
         Me.FlowLayoutPanel1.UseWaitCursor = True
         '
@@ -116,7 +116,6 @@ Partial Class Cashier_Order
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(190, 23)
         Me.TextBox1.TabIndex = 0
-        Me.TextBox1.UseWaitCursor = True
         '
         'Cashier_Order
         '
@@ -134,7 +133,10 @@ Partial Class Cashier_Order
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.FlowLayoutPanel1)
         Me.DoubleBuffered = True
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.MaximizeBox = False
         Me.Name = "Cashier_Order"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "CashierInterface"
         Me.ResumeLayout(False)
         Me.PerformLayout()

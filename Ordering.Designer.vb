@@ -28,13 +28,13 @@ Partial Class Ordering
         Me.Message = New System.Windows.Forms.TextBox()
         Me.ID = New System.Windows.Forms.TextBox()
         Me.Design = New System.Windows.Forms.ComboBox()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.ProductImage = New System.Windows.Forms.PictureBox()
+        Me.Stock = New System.Windows.Forms.Label()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.NumericUpDown1 = New System.Windows.Forms.NumericUpDown()
         Me.Product = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ProductImage, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -51,6 +51,7 @@ Partial Class Ordering
         '
         Me.Button1.BackColor = System.Drawing.Color.Transparent
         Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button1.Font = New System.Drawing.Font("Microsoft YaHei", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.Color.White
@@ -93,26 +94,26 @@ Partial Class Ordering
         Me.Design.Size = New System.Drawing.Size(150, 24)
         Me.Design.TabIndex = 6
         '
-        'PictureBox2
+        'ProductImage
         '
-        Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox2.Location = New System.Drawing.Point(25, 113)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(338, 284)
-        Me.PictureBox2.TabIndex = 7
-        Me.PictureBox2.TabStop = False
+        Me.ProductImage.BackColor = System.Drawing.Color.Transparent
+        Me.ProductImage.Location = New System.Drawing.Point(25, 113)
+        Me.ProductImage.Name = "ProductImage"
+        Me.ProductImage.Size = New System.Drawing.Size(338, 284)
+        Me.ProductImage.TabIndex = 7
+        Me.ProductImage.TabStop = False
         '
-        'Label1
+        'Stock
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Font = New System.Drawing.Font("Palatino Linotype", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(329, 13)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(85, 31)
-        Me.Label1.TabIndex = 8
-        Me.Label1.Text = "Label1"
+        Me.Stock.AutoSize = True
+        Me.Stock.BackColor = System.Drawing.Color.Transparent
+        Me.Stock.Font = New System.Drawing.Font("Palatino Linotype", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Stock.ForeColor = System.Drawing.Color.White
+        Me.Stock.Location = New System.Drawing.Point(329, 13)
+        Me.Stock.Name = "Stock"
+        Me.Stock.Size = New System.Drawing.Size(85, 31)
+        Me.Stock.TabIndex = 8
+        Me.Stock.Text = "Label1"
         '
         'ComboBox1
         '
@@ -151,8 +152,8 @@ Partial Class Ordering
         Me.Controls.Add(Me.Product)
         Me.Controls.Add(Me.NumericUpDown1)
         Me.Controls.Add(Me.ComboBox1)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.PictureBox2)
+        Me.Controls.Add(Me.Stock)
+        Me.Controls.Add(Me.ProductImage)
         Me.Controls.Add(Me.Design)
         Me.Controls.Add(Me.ID)
         Me.Controls.Add(Me.Message)
@@ -160,11 +161,12 @@ Partial Class Ordering
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.PictureBox1)
         Me.DoubleBuffered = True
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "Ordering"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Ordering"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ProductImage, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -177,8 +179,8 @@ Partial Class Ordering
     Friend WithEvents Message As TextBox
     Friend WithEvents ID As TextBox
     Friend WithEvents Design As ComboBox
-    Friend WithEvents PictureBox2 As PictureBox
-    Friend WithEvents Label1 As Label
+    Friend WithEvents ProductImage As PictureBox
+    Friend WithEvents Stock As Label
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents NumericUpDown1 As NumericUpDown
     Friend WithEvents Product As Label

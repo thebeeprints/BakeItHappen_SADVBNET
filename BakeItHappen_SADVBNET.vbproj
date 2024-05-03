@@ -214,10 +214,17 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ImageBase64Converter.vb" />
+    <Compile Include="ProductDataModel.vb" />
     <Compile Include="SignIn.Designer.vb">
       <DependentUpon>SignIn.vb</DependentUpon>
     </Compile>
     <Compile Include="SignIn.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test.Designer.vb">
+      <DependentUpon>Test.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Test.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UserDataModel.vb" />
@@ -255,6 +262,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SignIn.resx">
       <DependentUpon>SignIn.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test.resx">
+      <DependentUpon>Test.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
