@@ -5,6 +5,8 @@ Public Class Cashier_Order
     Dim firebase As New FireBaseApp()
     Dim imgconverter As New ImageBase64Converter()
     Dim productsData As Dictionary(Of String, ProductDataModel)
+    Dim orderList As New List(Of OrderDataModel)()
+    Public curDay As String = $"{Now.Month}{Now.Day:D2}{Now.Year}"
     Private Sub Cashier_Order_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Cursor = Cursors.Default
         LoadProducts()
@@ -20,21 +22,6 @@ Public Class Cashier_Order
             Next
             Cursor = Cursors.Default
         End If
-
-
-
-
-        'If PaymentEmbedded Then
-        '    Panel1.Controls.Clear()
-        'Else
-        '    Dim paymentInstance As New Payment()
-        '    paymentInstance.TopLevel = False
-        '    paymentInstance.FormBorderStyle = FormBorderStyle.None
-        '    paymentInstance.Dock = DockStyle.Fill
-        '    Panel1.Controls.Add(paymentInstance)
-        '    paymentInstance.Show()
-        '    PaymentEmbedded = True
-        'End If
     End Sub
 
 
@@ -101,11 +88,6 @@ Public Class Cashier_Order
         End If
         Cursor = Cursors.Default
     End Sub
-
-    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
-
-    End Sub
-
     Private Sub ComboBox1_TextChanged(sender As Object, e As EventArgs) Handles ComboBox1.TextChanged
         Dim sortedProducts
         Dim SortMethod = ComboBox1.SelectedItem.ToString()
@@ -120,9 +102,7 @@ Public Class Cashier_Order
         If SortMethod = "Price High" Then
             sortedProducts = productsData.OrderByDescending(Function(p) p.Value.ProductPrice)
             SortProducts(sortedProducts)
-
         End If
-
     End Sub
 
     Private Sub SortProducts(sortedProduct As IOrderedEnumerable(Of KeyValuePair(Of String, ProductDataModel)))
@@ -132,5 +112,81 @@ Public Class Cashier_Order
             AddProductToFlowLayoutPanel(product.Value)
         Next
         Cursor = Cursors.Default
+    End Sub
+
+    Private Sub clear_btn_Click(sender As Object, e As EventArgs) Handles clear_btn.Click
+        DataGridView1.Rows.Clear()
+
+    End Sub
+
+    Private Sub finish_btn_Click(sender As Object, e As EventArgs) Handles finish_btn.Click
+        ProceedTransaction()
+        DecreaseProductStock()
+    End Sub
+
+    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
+
+    End Sub
+
+    Private Sub TextBox1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox1.KeyPress
+        e.Handled = True
+    End Sub
+
+
+    Public Sub ProceedTransaction()
+        Dim totalDailySale As Integer = 0
+        Dim transaction As String = $"{Now.Day}{Now.Hour}{Now.Minute}{Now.Second}"
+        For Each row As DataGridViewRow In DataGridView1.Rows
+            Dim order As New OrderDataModel With {
+                .TransacID = transaction,
+                .ProductID = row.Cells(0).Value.ToString(),
+                .ProductName = row.Cells(1).Value.ToString(),
+                .ProductPrice = row.Cells(2).Value.ToString(),
+                .ProductQuantity = row.Cells(3).Value.ToString(),
+                .ProductTotal = row.Cells(4).Value.ToString()
+            }
+            firebase.client.Set($"BakeITHappen/Orders/{transaction}/{row.Index}", order)
+        Next
+        Try
+            Dim response As FirebaseResponse = firebase.client.Get($"BakeITHappen/Sales/Daily Sales/{curDay}/")
+            If response.Body <> "null" Then
+                totalDailySale = response.ResultAs(Of Integer)()
+            End If
+        Catch ex As Exception
+            Return
+        End Try
+
+        For Each row As DataGridViewRow In DataGridView1.Rows
+            totalDailySale += CInt(row.Cells(4).Value)
+        Next
+        firebase.client.Set(Of Integer)($"BakeITHappen/Sales/Daily Sales/{curDay}/", totalDailySale)
+    End Sub
+    Private Sub Del_btn_Click(sender As Object, e As EventArgs) Handles Del_btn.Click
+        DataGridView1.Rows.RemoveAt(DataGridView1.CurrentRow.Index)
+    End Sub
+
+    Private Sub DataGridView1_RowsAdded(sender As Object, e As DataGridViewRowsAddedEventArgs) Handles DataGridView1.RowsAdded
+        Dim total As Decimal = 0
+        For Each row As DataGridViewRow In DataGridView1.Rows
+            total += CDec(row.Cells(4).Value)
+        Next
+
+        TextBox1.Text = total.ToString()
+
+    End Sub
+
+
+    Public Sub DecreaseProductStock()
+        Try
+            For Each row As DataGridViewRow In DataGridView1.Rows
+                Dim response As FirebaseResponse = firebase.client.Get($"BakeITHappen/Products/{row.Cells(0).Value}/ProductStock")
+                Dim currentStock As Integer = response.ResultAs(Of Integer)()
+                Dim updatedStock As Integer = currentStock - row.Cells(3).Value
+                firebase.client.Set($"BakeITHappen/Products/{row.Cells(0).Value}/ProductStock", updatedStock)
+            Next
+        Catch ex As Exception
+            Exit Sub
+        End Try
+
     End Sub
 End Class

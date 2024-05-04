@@ -218,6 +218,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="OrderDataModel.vb" />
     <Compile Include="OrderHistory.Designer.vb">
       <DependentUpon>OrderHistory.vb</DependentUpon>
     </Compile>
@@ -256,6 +257,7 @@
     <Compile Include="Sales.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="SalesDataModel.vb" />
     <Compile Include="SignIn.Designer.vb">
       <DependentUpon>SignIn.vb</DependentUpon>
     </Compile>

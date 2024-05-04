@@ -1,31 +1,43 @@
 ﻿Imports System.Reflection.Emit
+Imports FireSharp.Response
 
 Public Class Ordering
     Dim imgConverter As New ImageBase64Converter()
+    Dim firebase As New FireBaseApp()
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         If NumericUpDown1.Value <= 0 Then
             MessageBox.Show("Please input a valid quantity", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        Else
-            'Dim order As New OrderDataModel With {
-            '    .ProductID = ID.Text,
-            '    .ProductName = Product.Text,
-            '    .ProductPrice = Price.Text,
-            '    .ProductQuantity = NumericUpDown1.Value,
-            '    .ProductTotal = Price.Text * NumericUpDown1.Value
-            '}
-            'Cashier_Order.AddOrder(order)
-            'Me.Close()
+            Return
         End If
-       
+
+        Dim existingRowIndex As Integer = -1
+
+        For Each row As DataGridViewRow In Cashier_Order.DataGridView1.Rows
+            If row.Cells(0).Value IsNot Nothing AndAlso row.Cells(0).Value.ToString() = ID.Text Then
+                existingRowIndex = row.Index
+                Exit For
+            End If
+        Next
+        If existingRowIndex <> -1 Then
+
+            Dim currentQuantity As Integer = CInt(Cashier_Order.DataGridView1.Rows(existingRowIndex).Cells(3).Value)
+            Dim currentTotalPrice As Decimal = CDec(Cashier_Order.DataGridView1.Rows(existingRowIndex).Cells(4).Value)
+            Dim updatedQuantity As Integer = currentQuantity + NumericUpDown1.Value
+            Dim updatedTotalPrice As Decimal = currentTotalPrice + NumericUpDown1.Value * Val(Price.Text)
+
+            Cashier_Order.DataGridView1.Rows(existingRowIndex).Cells(3).Value = updatedQuantity
+            Cashier_Order.DataGridView1.Rows(existingRowIndex).Cells(4).Value = updatedTotalPrice
+        Else
+            Cashier_Order.DataGridView1.Rows.Add(ID.Text, Product.Text, Price.Text, NumericUpDown1.Value, NumericUpDown1.Value * Val(Price.Text))
+        End If
+        Me.Close()
+
     End Sub
 
     Private Sub NumericUpDown1_ValueChanged(sender As Object, e As EventArgs) Handles NumericUpDown1.ValueChanged
-
         If NumericUpDown1.Value < 0 Then
             NumericUpDown1.Value = 0
         End If
-        'ErrorProvider1.SetError(NumericUpDown1, String.Empty)
-        'Label1.Text = holdstockML - NumericUpDown1.Value
 
     End Sub
 
@@ -53,4 +65,6 @@ Public Class Ordering
         Price.Text = Nothing
         ProductImage.Image = Nothing
     End Sub
+
+
 End Class
