@@ -5,6 +5,10 @@ Public Class Ordering
     Dim imgConverter As New ImageBase64Converter()
     Dim firebase As New FireBaseApp()
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        If Stock.Text <= 0 Then
+            MessageBox.Show("Product is out of stock", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return
+        End If
         If NumericUpDown1.Value <= 0 Then
             MessageBox.Show("Please input a valid quantity", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return
@@ -42,7 +46,7 @@ Public Class Ordering
     End Sub
 
     Private Sub Ordering_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        NumericUpDown1.Value = 1
     End Sub
 
     Public Sub GetProductData(T As ProductDataModel)

@@ -120,8 +120,7 @@ Public Class Cashier_Order
     End Sub
 
     Private Sub finish_btn_Click(sender As Object, e As EventArgs) Handles finish_btn.Click
-        ProceedTransaction()
-        DecreaseProductStock()
+        Payment.Show()
     End Sub
 
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
@@ -145,7 +144,7 @@ Public Class Cashier_Order
                 .ProductQuantity = row.Cells(3).Value.ToString(),
                 .ProductTotal = row.Cells(4).Value.ToString()
             }
-            firebase.client.Set($"BakeITHappen/Orders/{transaction}/{row.Index}", order)
+            firebase.client.Set($"BakeITHappen/Orders/{curDay}/{transaction}/{row.Index}", order)
         Next
         Try
             Dim response As FirebaseResponse = firebase.client.Get($"BakeITHappen/Sales/Daily Sales/{curDay}/")
@@ -160,6 +159,12 @@ Public Class Cashier_Order
             totalDailySale += CInt(row.Cells(4).Value)
         Next
         firebase.client.Set(Of Integer)($"BakeITHappen/Sales/Daily Sales/{curDay}/", totalDailySale)
+        If totalDailySale > 0 Then
+            Dim overAllSale As Integer = 0
+            overAllSale += totalDailySale
+            firebase.client.Set(Of Integer)($"BakeITHappen/Sales/Overall Sales/", overAllSale)
+        End If
+
     End Sub
     Private Sub Del_btn_Click(sender As Object, e As EventArgs) Handles Del_btn.Click
         DataGridView1.Rows.RemoveAt(DataGridView1.CurrentRow.Index)
