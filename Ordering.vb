@@ -3,7 +3,20 @@
 Public Class Ordering
     Dim imgConverter As New ImageBase64Converter()
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-
+        If NumericUpDown1.Value <= 0 Then
+            MessageBox.Show("Please input a valid quantity", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Else
+            'Dim order As New OrderDataModel With {
+            '    .ProductID = ID.Text,
+            '    .ProductName = Product.Text,
+            '    .ProductPrice = Price.Text,
+            '    .ProductQuantity = NumericUpDown1.Value,
+            '    .ProductTotal = Price.Text * NumericUpDown1.Value
+            '}
+            'Cashier_Order.AddOrder(order)
+            'Me.Close()
+        End If
+       
     End Sub
 
     Private Sub NumericUpDown1_ValueChanged(sender As Object, e As EventArgs) Handles NumericUpDown1.ValueChanged

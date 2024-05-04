@@ -144,13 +144,24 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminDashboard.Designer.vb">
+      <DependentUpon>AdminDashboard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AdminDashboard.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="AdminInterface.Designer.vb">
       <DependentUpon>AdminInterface.vb</DependentUpon>
     </Compile>
     <Compile Include="AdminInterface.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AuthenticationHelper.vb" />
+    <Compile Include="AdminOrders.Designer.vb">
+      <DependentUpon>AdminOrders.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AdminOrders.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Cashier_Order.Designer.vb">
       <DependentUpon>Cashier_Order.vb</DependentUpon>
     </Compile>
@@ -185,6 +196,12 @@
       <DependentUpon>LoadingForm.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Manage.Designer.vb">
+      <DependentUpon>Manage.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Manage.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -201,10 +218,22 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="OrderHistory.Designer.vb">
+      <DependentUpon>OrderHistory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="OrderHistory.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Ordering.Designer.vb">
       <DependentUpon>Ordering.vb</DependentUpon>
     </Compile>
     <Compile Include="Ordering.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Payment.Designer.vb">
+      <DependentUpon>Payment.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Payment.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PrintReceipt.Designer.vb">
@@ -215,10 +244,28 @@
     </Compile>
     <Compile Include="ImageBase64Converter.vb" />
     <Compile Include="ProductDataModel.vb" />
+    <Compile Include="RegisterAccount.Designer.vb">
+      <DependentUpon>RegisterAccount.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RegisterAccount.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sales.Designer.vb">
+      <DependentUpon>Sales.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Sales.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="SignIn.Designer.vb">
       <DependentUpon>SignIn.vb</DependentUpon>
     </Compile>
     <Compile Include="SignIn.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stocks.Designer.vb">
+      <DependentUpon>Stocks.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Stocks.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Test.Designer.vb">
@@ -227,11 +274,23 @@
     <Compile Include="Test.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="UpdateProduct.Designer.vb">
+      <DependentUpon>UpdateProduct.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateProduct.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="UserDataModel.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AdminDashboard.resx">
+      <DependentUpon>AdminDashboard.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminInterface.resx">
       <DependentUpon>AdminInterface.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminOrders.resx">
+      <DependentUpon>AdminOrders.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Cashier_Order.resx">
       <DependentUpon>Cashier_Order.vb</DependentUpon>
@@ -248,23 +307,44 @@
     <EmbeddedResource Include="LoadingForm.resx">
       <DependentUpon>LoadingForm.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Manage.resx">
+      <DependentUpon>Manage.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="OrderHistory.resx">
+      <DependentUpon>OrderHistory.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ordering.resx">
       <DependentUpon>Ordering.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payment.resx">
+      <DependentUpon>Payment.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PrintReceipt.resx">
       <DependentUpon>PrintReceipt.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RegisterAccount.resx">
+      <DependentUpon>RegisterAccount.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sales.resx">
+      <DependentUpon>Sales.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SignIn.resx">
       <DependentUpon>SignIn.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Stocks.resx">
+      <DependentUpon>Stocks.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Test.resx">
       <DependentUpon>Test.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateProduct.resx">
+      <DependentUpon>UpdateProduct.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -360,6 +440,75 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\DailyAttendance.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AdminDashboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AdminInterface.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Arrow1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DailySale %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DailySale.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DailyTransaction.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ItemList.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Manage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Orders %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Orders.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OverallSale %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Payment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ProductStock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ProductStocks.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RegisterAccount.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RegisterAnAccount.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sales %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Stock %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UpdateProducts %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UpdateProducts.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\View Sales.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ViewAccounts %281%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <Import Project="packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />

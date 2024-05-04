@@ -118,10 +118,12 @@ Partial Class Ordering
         'ComboBox1
         '
         Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Items.AddRange(New Object() {"Regular", "Promo"})
         Me.ComboBox1.Location = New System.Drawing.Point(156, 407)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(179, 24)
         Me.ComboBox1.TabIndex = 9
+        Me.ComboBox1.Text = "Regular"
         '
         'NumericUpDown1
         '
