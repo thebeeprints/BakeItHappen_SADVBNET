@@ -159,10 +159,12 @@ Public Class Cashier_Order
             totalDailySale += CInt(row.Cells(4).Value)
         Next
         firebase.client.Set(Of Integer)($"BakeITHappen/Sales/Daily Sales/{curDay}/", totalDailySale)
-        If totalDailySale > 0 Then
-            Dim overAllSale As Integer = 0
-            overAllSale += totalDailySale
-            firebase.client.Set(Of Integer)($"BakeITHappen/Sales/Overall Sales/", overAllSale)
+
+
+        Dim overAllSaleData As Decimal = firebase.client.Get($"BakeITHappen/Sales/Overall Sales/").ResultAs(Of Integer)()
+        If Val(TextBox1.Text) > 0 Then
+            overAllSaleData += Val(TextBox1.Text)
+            firebase.client.Set(Of Integer)($"BakeITHappen/Sales/Overall Sales/", overAllSaleData)
         End If
 
     End Sub

@@ -18,8 +18,11 @@
             }
         Dim response = firebase.InsertData(attendance, $"BakeITHappen/Attendance/{currentDay}/{SignIn.getID}/")
         Dim message = If(response, "Time in recorded", "Failed to record time in")
-        MessageBox.Show(message)
         showAttendanceList()
+        MessageBox.Show(message)
+        System.Threading.Thread.Sleep(2000)
+        Me.Hide()
+        Cashier_Interface.Show()
     End Sub
 
     Private Sub TimeOut_Click(sender As Object, e As EventArgs) Handles TimeOut.Click
