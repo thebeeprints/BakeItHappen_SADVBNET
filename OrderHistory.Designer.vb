@@ -38,7 +38,7 @@ Partial Class OrderHistory
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID})
         Me.DataGridView1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.DataGridView1.Location = New System.Drawing.Point(113, 88)
+        Me.DataGridView1.Location = New System.Drawing.Point(11, 87)
         Me.DataGridView1.Margin = New System.Windows.Forms.Padding(2)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersVisible = False
@@ -53,13 +53,13 @@ Partial Class OrderHistory
         Me.DataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridView2.BackgroundColor = System.Drawing.Color.MistyRose
         Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Location = New System.Drawing.Point(245, 63)
+        Me.DataGridView2.Location = New System.Drawing.Point(144, 63)
         Me.DataGridView2.Margin = New System.Windows.Forms.Padding(2)
         Me.DataGridView2.Name = "DataGridView2"
         Me.DataGridView2.RowHeadersVisible = False
         Me.DataGridView2.RowHeadersWidth = 51
         Me.DataGridView2.RowTemplate.Height = 24
-        Me.DataGridView2.Size = New System.Drawing.Size(618, 305)
+        Me.DataGridView2.Size = New System.Drawing.Size(719, 305)
         Me.DataGridView2.TabIndex = 1
         '
         'Back
@@ -80,7 +80,7 @@ Partial Class OrderHistory
         '
         Me.DateTimePicker1.CustomFormat = "mm/dd/yyyy"
         Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker1.Location = New System.Drawing.Point(113, 63)
+        Me.DateTimePicker1.Location = New System.Drawing.Point(11, 62)
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(128, 20)
         Me.DateTimePicker1.TabIndex = 3

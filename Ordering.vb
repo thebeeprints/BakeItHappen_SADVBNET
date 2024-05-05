@@ -4,6 +4,8 @@ Imports FireSharp.Response
 Public Class Ordering
     Dim imgConverter As New ImageBase64Converter()
     Dim firebase As New FireBaseApp()
+    Private reg As Decimal
+    Private promo As Decimal
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         If Stock.Text <= 0 Then
             MessageBox.Show("Product is out of stock", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -34,6 +36,9 @@ Public Class Ordering
         Else
             Cashier_Order.DataGridView1.Rows.Add(ID.Text, Product.Text, Price.Text, NumericUpDown1.Value, NumericUpDown1.Value * Val(Price.Text))
         End If
+
+        Cashier_Order.ProdMsg = ProdMsg_txt.Text
+        Cashier_Order.ProdDesign = DesignBox.Text
         Me.Close()
 
     End Sub
@@ -47,13 +52,24 @@ Public Class Ordering
 
     Private Sub Ordering_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         NumericUpDown1.Value = 1
-    End Sub
+        loadProdDesign()
 
+
+
+
+    End Sub
+    Private Sub loadProdDesign()
+        Dim design = firebase.client.Get($"BakeITHappen/Product Design/{ID.Text}")
+        Dim result = design.ResultAs(Of List(Of String))()
+        DesignBox.Items.Clear()
+        DesignBox.Items.AddRange(result.ToArray())
+    End Sub
     Public Sub GetProductData(T As ProductDataModel)
         ID.Text = T.ID
         Product.Text = T.ProductName
         Stock.Text = T.ProductStock
-        Price.Text = T.ProductPrice
+        reg = T.ProductPrice
+        promo = T.ProductPromoPrice
         ProductImage.Image = imgConverter.B64ToImg(T.ProductImage)
         ProductImage.SizeMode = PictureBoxSizeMode.StretchImage
     End Sub
@@ -70,5 +86,11 @@ Public Class Ordering
         ProductImage.Image = Nothing
     End Sub
 
-
+    Private Sub ComboBox1_TextChanged(sender As Object, e As EventArgs) Handles ComboBox1.TextChanged
+        If ComboBox1.SelectedItem = "Promo" Then
+            Price.Text = promo
+        ElseIf ComboBox1.SelectedItem = "Regular" Then
+            Price.Text = reg
+        End If
+    End Sub
 End Class

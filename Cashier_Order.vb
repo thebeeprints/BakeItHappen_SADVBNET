@@ -7,6 +7,10 @@ Public Class Cashier_Order
     Dim productsData As Dictionary(Of String, ProductDataModel)
     Dim orderList As New List(Of OrderDataModel)()
     Public curDay As String = $"{Now.Month}{Now.Day:D2}{Now.Year}"
+
+
+    Public ProdMsg As String
+    Public ProdDesign As String
     Private Sub Cashier_Order_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Cursor = Cursors.Default
         LoadProducts()
@@ -23,9 +27,6 @@ Public Class Cashier_Order
             Cursor = Cursors.Default
         End If
     End Sub
-
-
-
 
     Private Sub AddProductToFlowLayoutPanel(product As ProductDataModel)
         Dim pictureBox As New PictureBox With {
@@ -65,10 +66,10 @@ Public Class Cashier_Order
     End Sub
 
     Private Sub PictureBox_Click(sender As Object, e As EventArgs)
-        Ordering.Show()
         Dim clickedPictureBox As PictureBox = DirectCast(sender, PictureBox)
         Dim productData As ProductDataModel = DirectCast(clickedPictureBox.Tag, ProductDataModel)
         Ordering.GetProductData(productData)
+        Ordering.Show()
     End Sub
 
     Private Sub SearchButton_Click(sender As Object, e As EventArgs) Handles SearchButton.Click
@@ -142,6 +143,8 @@ Public Class Cashier_Order
                 .ProductName = row.Cells(1).Value.ToString(),
                 .ProductPrice = row.Cells(2).Value.ToString(),
                 .ProductQuantity = row.Cells(3).Value.ToString(),
+                .ProdutDesign = ProdDesign,
+                .ProductMessage = ProdMsg,
                 .ProductTotal = row.Cells(4).Value.ToString()
             }
             firebase.client.Set($"BakeITHappen/Orders/{curDay}/{transaction}/{row.Index}", order)

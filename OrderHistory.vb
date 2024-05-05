@@ -11,10 +11,6 @@ Public Class OrderHistory
     End Sub
 
     Private Sub OrderHistory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-
-
-
         LoadIDs(Cashier_Order.curDay)
     End Sub
     Private Sub LoadIDs(targetDate As String)
@@ -52,6 +48,8 @@ Public Class OrderHistory
         DataGridView2.Columns("ProductName").HeaderText = "Product Name"
         DataGridView2.Columns("ProductPrice").HeaderText = "Product Price"
         DataGridView2.Columns("ProductQuantity").HeaderText = "Product Quantity"
+        DataGridView2.Columns("ProdutDesign").HeaderText = "Product Design"
+        DataGridView2.Columns("ProductMessage").HeaderText = "Product Message"
         DataGridView2.Columns("ProductTotal").HeaderText = "Product Total"
     End Sub
 
@@ -82,5 +80,9 @@ Public Class OrderHistory
         Cursor = Cursors.Default
         newTarget = DateTimePicker1.Value.ToString("MMddyyyy").TrimStart("0")
         LoadIDs(newTarget)
+    End Sub
+
+    Private Sub DataGridView2_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView2.CellContentClick
+
     End Sub
 End Class
