@@ -4,7 +4,6 @@ Public Class ImageBase64Converter
     Public Function ImgToB64(pbox As PictureBox) As String
         Dim ms As New MemoryStream()
         pbox.Image.Save(ms, pbox.Image.RawFormat)
-        MessageBox.Show("Converted!")
         Return Convert.ToBase64String(ms.ToArray())
     End Function
 

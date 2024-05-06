@@ -17,13 +17,14 @@
             .EmployeeName = SignIn.getFullName,
             .TimeIn = syncTime
             }
-        Dim response = firebase.InsertData(attendance, $"BakeITHappen/Attendance/{currentDay}/{SignIn.getID}/")
+        Dim response = firebase.InsertData(attendance, $"BakeITHappen/Attendance/{currentDay}/{SignIn.getUser}/")
         Dim message = If(response, "Time in recorded", "Failed to record time in")
         showAttendanceList()
         MessageBox.Show(message)
         Cursor = Cursors.WaitCursor
         Await Task.Delay(500)
         Cursor = Cursors.Default
+        TimeIn.Enabled = False
         Me.Hide()
         Cashier_Interface.Show()
     End Sub
@@ -34,16 +35,17 @@
             Exit Sub
         End If
         Dim Time As String = $"{Now.Month:00}/{Now.Day:00}/{Now.Year} {Now.Hour:00}:{Now.Minute:00}"
-        Dim getAttendance = firebase.client.Get($"BakeITHappen/Attendance/{currentDay}/{SignIn.getID}").ResultAs(Of AttendanceDataModel)()
+        Dim getAttendance = firebase.client.Get($"BakeITHappen/Attendance/{currentDay}/{SignIn.getUser}").ResultAs(Of AttendanceDataModel)()
         If getAttendance Is Nothing Then
             MessageBox.Show("Please Time In first")
             Exit Sub
         End If
+
         getAttendance.TimeOut = Time
-        Dim updateData = firebase.client.Update($"BakeITHappen/Attendance/{currentDay}/{SignIn.getID}", getAttendance).ResultAs(Of AttendanceDataModel)()
+        Dim updateData = firebase.client.Update($"BakeITHappen/Attendance/{currentDay}/{SignIn.getUser}", getAttendance).ResultAs(Of AttendanceDataModel)()
         showAttendanceList()
         MessageBox.Show("Time out recorded")
-        Me.Hide()
+        Me.Close()
         SignIn.Show()
     End Sub
 

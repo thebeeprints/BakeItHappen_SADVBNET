@@ -22,6 +22,8 @@ Partial Class PrintReceipt
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(PrintReceipt))
         Me.Button1 = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
@@ -40,10 +42,10 @@ Partial Class PrintReceipt
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.Color.White
-        Me.Button1.Location = New System.Drawing.Point(134, 509)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(2)
+        Me.Button1.Location = New System.Drawing.Point(179, 626)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(164, 33)
+        Me.Button1.Size = New System.Drawing.Size(219, 41)
         Me.Button1.TabIndex = 0
         Me.Button1.Text = "Print"
         Me.Button1.UseVisualStyleBackColor = False
@@ -54,40 +56,60 @@ Partial Class PrintReceipt
         Me.DataGridView1.AllowUserToDeleteRows = False
         Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonFace
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Arial Rounded MT Bold", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ProdName, Me.ProdPrice, Me.ProdQuant, Me.ProdTotal})
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Arial Rounded MT Bold", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle2
         Me.DataGridView1.GridColor = System.Drawing.SystemColors.AppWorkspace
-        Me.DataGridView1.Location = New System.Drawing.Point(34, 191)
-        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(2)
+        Me.DataGridView1.Location = New System.Drawing.Point(45, 235)
+        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.RowHeadersVisible = False
         Me.DataGridView1.RowHeadersWidth = 51
         Me.DataGridView1.RowTemplate.Height = 24
-        Me.DataGridView1.Size = New System.Drawing.Size(367, 172)
+        Me.DataGridView1.Size = New System.Drawing.Size(489, 212)
         Me.DataGridView1.TabIndex = 1
         '
         'ProdName
         '
         Me.ProdName.HeaderText = "Name"
+        Me.ProdName.MinimumWidth = 6
         Me.ProdName.Name = "ProdName"
         Me.ProdName.ReadOnly = True
         '
         'ProdPrice
         '
         Me.ProdPrice.HeaderText = "Price"
+        Me.ProdPrice.MinimumWidth = 6
         Me.ProdPrice.Name = "ProdPrice"
         Me.ProdPrice.ReadOnly = True
         '
         'ProdQuant
         '
         Me.ProdQuant.HeaderText = "Quantity"
+        Me.ProdQuant.MinimumWidth = 6
         Me.ProdQuant.Name = "ProdQuant"
         Me.ProdQuant.ReadOnly = True
         '
         'ProdTotal
         '
         Me.ProdTotal.HeaderText = "Total"
+        Me.ProdTotal.MinimumWidth = 6
         Me.ProdTotal.Name = "ProdTotal"
         Me.ProdTotal.ReadOnly = True
         '
@@ -106,16 +128,16 @@ Partial Class PrintReceipt
         '
         'PrintReceipt
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.BakeItHappen_SADVBNET.My.Resources.Resources.PrintReceipt
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(436, 571)
+        Me.ClientSize = New System.Drawing.Size(581, 703)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Button1)
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
-        Me.Margin = New System.Windows.Forms.Padding(2)
+        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Name = "PrintReceipt"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "PrintReceipt"

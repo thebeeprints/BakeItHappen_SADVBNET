@@ -14,11 +14,9 @@ Public Class Cashier_Order
     Public ProdMsg As String
     Public ProdDesign As String
     Private Sub Cashier_Order_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
         Cursor = Cursors.WaitCursor
         LoadProducts()
         Cursor = Cursors.Default
-        FlowLayoutPanel1.UseWaitCursor = False
         Search_txt.TabIndex = 0
     End Sub
     Private Sub LoadProducts()

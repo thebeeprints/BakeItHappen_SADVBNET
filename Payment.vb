@@ -53,4 +53,8 @@ Public Class Payment
     Public Sub SetTransacID(id As String)
         TransacID = id
     End Sub
+
+    Public Function GetTransacID()
+        Return TransacID
+    End Function
 End Class

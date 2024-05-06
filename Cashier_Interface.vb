@@ -1,9 +1,6 @@
 ﻿Imports Microsoft.VisualBasic.ApplicationServices
 
 Public Class Cashier_Interface
-    Private CashierOrderInstance As New Cashier_Order()
-    Private CashierSettings As New Cashier_Settings()
-    Private receipt As New PrintReceipt()
 
     Private Sub DateTimePicker1_ValueChanged(sender As Object, e As EventArgs)
 
@@ -31,17 +28,17 @@ Public Class Cashier_Interface
         Cashier_Order.FormBorderStyle = FormBorderStyle.None
         Cashier_Order.Dock = DockStyle.Fill
         Panel1.Controls.Clear()
-        Panel1.Controls.Add( Cashier_Order)
+        Panel1.Controls.Add(Cashier_Order)
         Cashier_Order.Show()
     End Sub
 
     Public Sub LoadCashierSettings()
-        CashierSettings.TopLevel = False
-        CashierSettings.FormBorderStyle = FormBorderStyle.None
-        CashierSettings.Dock = DockStyle.Fill
+        Cashier_Settings.TopLevel = False
+        Cashier_Settings.FormBorderStyle = FormBorderStyle.None
+        Cashier_Settings.Dock = DockStyle.Fill
         Panel1.Controls.Clear()
-        Panel1.Controls.Add(CashierSettings)
-        CashierSettings.Show()
+        Panel1.Controls.Add(Cashier_Settings)
+        Cashier_Settings.Show()
     End Sub
 
 End Class

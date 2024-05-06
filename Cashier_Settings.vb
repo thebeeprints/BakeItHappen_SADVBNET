@@ -14,10 +14,10 @@ Public Class Cashier_Settings
             Exit Sub
         End If
         Try
-            Dim response = firebase.client.Get($"BakeITHappen/Users/{SignIn.getID}")
+            Dim response = firebase.client.Get($"BakeITHappen/Users/{SignIn.getUser}")
             Dim data = response.ResultAs(Of UserDataModel)()
 
-            Employee_Name.Text = $"{data.FirstName} {data.LastName}"
+            Employee_Name.Text = $"{data.FullName}"
             Employee_ID.Text = data.ID
 
             If data.AccessType = "Administrator" Then
@@ -27,12 +27,22 @@ Public Class Cashier_Settings
             End If
 
 
-            Dim getPicQry = firebase.client.Get($"BakeITHappen/Employee/Images/{SignIn.getID}")
-            Dim picData = getPicQry.ResultAs(Of EmployeeImageDataModel)()
-            CashierPicBox.Image = imgconverter.B64ToImg(picData.Image)
+            'Dim getPicQry = firebase.client.Get($"BakeITHappen/Employee/Images/{SignIn.getUser}")
+            Dim getPicQry = firebase.client.Get($"BakeITHappen/Users/{SignIn.getUser}/Avatar")
+            Dim picData = getPicQry.ResultAs(Of String)()
+            CashierPicBox.Image = imgconverter.B64ToImg(picData)
         Catch ex As Exception
             MessageBox.Show($"An error has occurred: {ex.Message}")
         End Try
+
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Cashier_Interface.Close()
+        DailyAttendance.Show()
+    End Sub
+
+    Private Sub CashierPicBox_Click(sender As Object, e As EventArgs) Handles CashierPicBox.Click
 
     End Sub
 End Class

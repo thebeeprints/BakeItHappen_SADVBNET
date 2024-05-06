@@ -40,11 +40,12 @@ Public Class SignIn
                         AdminInterface.Show()
                     Else
                         'Cashier_Settings.Show()
-                        'DailyAttendance.Show()
+
                         Cursor = Cursors.WaitCursor
                         Await Task.Delay(1000)
                         Cursor = Cursors.Default
-                        Cashier_Interface.Show()
+                        'Cashier_Interface.Show()
+                        DailyAttendance.Show()
                     End If
                     Me.Hide()
                 Else
@@ -57,6 +58,7 @@ Public Class SignIn
 
             username_txt.Text = "Username"
             password_txt.Text = "Password"
+            password_txt.UseSystemPasswordChar = True
         Else
             MessageBox.Show("There is a problem with you internet connection. Please try again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If
@@ -64,14 +66,6 @@ Public Class SignIn
 
     End Sub
 
-
-    Public Function getUser()
-        If user Is Nothing Then
-            Return "null"
-        Else
-            Return user.Username
-        End If
-    End Function
     Public Function getID()
         If user Is Nothing Then
             Return "null"
@@ -79,11 +73,18 @@ Public Class SignIn
             Return user.ID
         End If
     End Function
+    Public Function getUser()
+        If user Is Nothing Then
+            Return "null"
+        Else
+            Return user.Username
+        End If
+    End Function
     Public Function getFullName()
         If user Is Nothing Then
             Return "null"
         Else
-            Return $"{user.FirstName} {user.LastName}"
+            Return $"{user.FullName}"
         End If
     End Function
 

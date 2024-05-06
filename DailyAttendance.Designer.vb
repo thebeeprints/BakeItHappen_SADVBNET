@@ -22,6 +22,8 @@ Partial Class DailyAttendance
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.AttendanceGrid = New System.Windows.Forms.DataGridView()
         Me.TimeIn = New System.Windows.Forms.Button()
         Me.TimeOut = New System.Windows.Forms.Button()
@@ -33,7 +35,23 @@ Partial Class DailyAttendance
         Me.AttendanceGrid.AllowUserToAddRows = False
         Me.AttendanceGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.AttendanceGrid.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.SaddleBrown
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Arial Rounded MT Bold", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.AttendanceGrid.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
         Me.AttendanceGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Arial Rounded MT Bold", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.AttendanceGrid.DefaultCellStyle = DataGridViewCellStyle4
         Me.AttendanceGrid.Location = New System.Drawing.Point(28, 118)
         Me.AttendanceGrid.Name = "AttendanceGrid"
         Me.AttendanceGrid.RowHeadersVisible = False
@@ -45,6 +63,7 @@ Partial Class DailyAttendance
         'TimeIn
         '
         Me.TimeIn.BackColor = System.Drawing.Color.SaddleBrown
+        Me.TimeIn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.TimeIn.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TimeIn.ForeColor = System.Drawing.Color.White
         Me.TimeIn.Location = New System.Drawing.Point(231, 372)
@@ -57,6 +76,7 @@ Partial Class DailyAttendance
         'TimeOut
         '
         Me.TimeOut.BackColor = System.Drawing.Color.SaddleBrown
+        Me.TimeOut.Cursor = System.Windows.Forms.Cursors.Hand
         Me.TimeOut.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TimeOut.ForeColor = System.Drawing.Color.White
         Me.TimeOut.Location = New System.Drawing.Point(404, 372)
