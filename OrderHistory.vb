@@ -6,7 +6,7 @@ Public Class OrderHistory
     Private previousTransactIDs As New List(Of String)
     Dim newTarget As String
     Private Sub Back_Click(sender As Object, e As EventArgs) Handles Back.Click
-        AdminDashboard.Show()
+        AdminInterface.Show()
         Me.Hide()
     End Sub
 
@@ -71,12 +71,12 @@ Public Class OrderHistory
 
     End Sub
 
-    Private Sub DateTimePicker1_CloseUp(sender As Object, e As EventArgs) Handles DateTimePicker1.CloseUp
+    Private Async Sub DateTimePicker1_CloseUp(sender As Object, e As EventArgs) Handles DateTimePicker1.CloseUp
         DataGridView2.DataSource = Nothing
         DataGridView2.Rows.Clear()
         DataGridView1.Rows.Clear()
         Cursor = Cursors.WaitCursor
-        Threading.Thread.Sleep(500)
+        Await Task.Delay(500)
         Cursor = Cursors.Default
         newTarget = DateTimePicker1.Value.ToString("MMddyyyy").TrimStart("0")
         LoadIDs(newTarget)

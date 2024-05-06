@@ -33,12 +33,13 @@ Partial Class AdminDashboard
         Me.UpdateProduct_btn.BackColor = System.Drawing.Color.Transparent
         Me.UpdateProduct_btn.BackgroundImage = Global.BakeItHappen_SADVBNET.My.Resources.Resources.UpdateProducts
         Me.UpdateProduct_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.UpdateProduct_btn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.UpdateProduct_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.UpdateProduct_btn.ForeColor = System.Drawing.Color.White
-        Me.UpdateProduct_btn.Location = New System.Drawing.Point(81, 166)
-        Me.UpdateProduct_btn.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.UpdateProduct_btn.Location = New System.Drawing.Point(96, 191)
+        Me.UpdateProduct_btn.Margin = New System.Windows.Forms.Padding(2)
         Me.UpdateProduct_btn.Name = "UpdateProduct_btn"
-        Me.UpdateProduct_btn.Size = New System.Drawing.Size(115, 98)
+        Me.UpdateProduct_btn.Size = New System.Drawing.Size(90, 90)
         Me.UpdateProduct_btn.TabIndex = 0
         Me.UpdateProduct_btn.UseVisualStyleBackColor = False
         '
@@ -47,12 +48,13 @@ Partial Class AdminDashboard
         Me.Orders_btn.BackColor = System.Drawing.Color.Transparent
         Me.Orders_btn.BackgroundImage = Global.BakeItHappen_SADVBNET.My.Resources.Resources.Orders
         Me.Orders_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Orders_btn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Orders_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Orders_btn.ForeColor = System.Drawing.Color.White
-        Me.Orders_btn.Location = New System.Drawing.Point(289, 166)
-        Me.Orders_btn.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Orders_btn.Location = New System.Drawing.Point(306, 191)
+        Me.Orders_btn.Margin = New System.Windows.Forms.Padding(2)
         Me.Orders_btn.Name = "Orders_btn"
-        Me.Orders_btn.Size = New System.Drawing.Size(115, 98)
+        Me.Orders_btn.Size = New System.Drawing.Size(90, 90)
         Me.Orders_btn.TabIndex = 1
         Me.Orders_btn.UseVisualStyleBackColor = False
         '
@@ -61,12 +63,13 @@ Partial Class AdminDashboard
         Me.Stock_btn.BackColor = System.Drawing.Color.Transparent
         Me.Stock_btn.BackgroundImage = Global.BakeItHappen_SADVBNET.My.Resources.Resources.Stock__2_
         Me.Stock_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Stock_btn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Stock_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Stock_btn.ForeColor = System.Drawing.Color.White
-        Me.Stock_btn.Location = New System.Drawing.Point(489, 166)
-        Me.Stock_btn.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Stock_btn.Location = New System.Drawing.Point(509, 191)
+        Me.Stock_btn.Margin = New System.Windows.Forms.Padding(2)
         Me.Stock_btn.Name = "Stock_btn"
-        Me.Stock_btn.Size = New System.Drawing.Size(115, 98)
+        Me.Stock_btn.Size = New System.Drawing.Size(90, 90)
         Me.Stock_btn.TabIndex = 2
         Me.Stock_btn.UseVisualStyleBackColor = False
         '
@@ -75,12 +78,13 @@ Partial Class AdminDashboard
         Me.ViewSales_btn.BackColor = System.Drawing.Color.Transparent
         Me.ViewSales_btn.BackgroundImage = Global.BakeItHappen_SADVBNET.My.Resources.Resources.Sales__1_
         Me.ViewSales_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ViewSales_btn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.ViewSales_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ViewSales_btn.ForeColor = System.Drawing.Color.White
-        Me.ViewSales_btn.Location = New System.Drawing.Point(688, 166)
-        Me.ViewSales_btn.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.ViewSales_btn.Location = New System.Drawing.Point(712, 191)
+        Me.ViewSales_btn.Margin = New System.Windows.Forms.Padding(2)
         Me.ViewSales_btn.Name = "ViewSales_btn"
-        Me.ViewSales_btn.Size = New System.Drawing.Size(115, 98)
+        Me.ViewSales_btn.Size = New System.Drawing.Size(90, 90)
         Me.ViewSales_btn.TabIndex = 3
         Me.ViewSales_btn.UseVisualStyleBackColor = False
         '
@@ -97,7 +101,7 @@ Partial Class AdminDashboard
         Me.Controls.Add(Me.UpdateProduct_btn)
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "AdminDashboard"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "AdminDashboard"

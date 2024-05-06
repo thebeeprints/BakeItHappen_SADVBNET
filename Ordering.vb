@@ -1,20 +1,38 @@
 ﻿Imports System.Reflection.Emit
+Imports System.Xml
 Imports FireSharp.Response
 
 Public Class Ordering
+    Dim ping As New Ping()
     Dim imgConverter As New ImageBase64Converter()
     Dim firebase As New FireBaseApp()
     Private reg As Decimal
     Private promo As Decimal
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        'VALIDATIONS
         If Stock.Text <= 0 Then
             MessageBox.Show("Product is out of stock", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
+        If NumericUpDown1.Value > Stock.Text Then
+            MessageBox.Show("Insufficient stock", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return
         End If
         If NumericUpDown1.Value <= 0 Then
             MessageBox.Show("Please input a valid quantity", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return
         End If
+        If String.IsNullOrWhiteSpace(Price.Text) Then
+            MessageBox.Show("Please choose category", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return
+        End If
+
+        If String.IsNullOrWhiteSpace(DesignBox.Text) Then
+            MessageBox.Show("Please choose design", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return
+        End If
+
+        'VALIDATIONS
+
 
         Dim existingRowIndex As Integer = -1
 
@@ -33,8 +51,13 @@ Public Class Ordering
 
             Cashier_Order.DataGridView1.Rows(existingRowIndex).Cells(3).Value = updatedQuantity
             Cashier_Order.DataGridView1.Rows(existingRowIndex).Cells(4).Value = updatedTotalPrice
+            PrintReceipt.DataGridView1.Rows(existingRowIndex).Cells(2).Value = updatedQuantity
+            PrintReceipt.DataGridView1.Rows(existingRowIndex).Cells(3).Value = updatedTotalPrice
+
         Else
             Cashier_Order.DataGridView1.Rows.Add(ID.Text, Product.Text, Price.Text, NumericUpDown1.Value, NumericUpDown1.Value * Val(Price.Text))
+            Cashier_Interface.LoadCashierOrder()
+            PrintReceipt.DataGridView1.Rows.Add(Product.Text, Price.Text, NumericUpDown1.Value, NumericUpDown1.Value * Val(Price.Text))
         End If
 
         Cashier_Order.ProdMsg = ProdMsg_txt.Text
@@ -53,16 +76,16 @@ Public Class Ordering
     Private Sub Ordering_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         NumericUpDown1.Value = 1
         loadProdDesign()
-
-
-
-
     End Sub
     Private Sub loadProdDesign()
-        Dim design = firebase.client.Get($"BakeITHappen/Product Design/{ID.Text}")
-        Dim result = design.ResultAs(Of List(Of String))()
-        DesignBox.Items.Clear()
-        DesignBox.Items.AddRange(result.ToArray())
+        If ping.CheckForInternetConnection() Then
+            Dim design = firebase.client.Get($"BakeITHappen/Product Design/{ID.Text}")
+            Dim result = design.ResultAs(Of List(Of String))()
+            DesignBox.Items.Clear()
+            DesignBox.Items.AddRange(result.ToArray())
+        Else
+            MessageBox.Show("There is a problem with you internet connection. Please try again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End If
     End Sub
     Public Sub GetProductData(T As ProductDataModel)
         ID.Text = T.ID

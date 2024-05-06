@@ -1,7 +1,9 @@
-﻿Imports FireSharp.Response
+﻿Imports System.ComponentModel
+Imports FireSharp.Response
 Imports Microsoft.VisualBasic.Logging
 
 Public Class Cashier_Order
+    Dim ping As New Ping()
     Dim firebase As New FireBaseApp()
     Dim imgconverter As New ImageBase64Converter()
     Dim productsData As Dictionary(Of String, ProductDataModel)
@@ -12,26 +14,44 @@ Public Class Cashier_Order
     Public ProdMsg As String
     Public ProdDesign As String
     Private Sub Cashier_Order_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Cursor = Cursors.Default
+
+        Cursor = Cursors.WaitCursor
         LoadProducts()
+        Cursor = Cursors.Default
         FlowLayoutPanel1.UseWaitCursor = False
         Search_txt.TabIndex = 0
     End Sub
     Private Sub LoadProducts()
-        Dim res As FirebaseResponse = firebase.client.Get("BakeITHappen/Products/")
-        If res.Body <> "null" Then
-            productsData = res.ResultAs(Of Dictionary(Of String, ProductDataModel))()
-            For Each product In productsData
-                AddProductToFlowLayoutPanel(product.Value)
-            Next
-            Cursor = Cursors.Default
-        End If
+        Dim bgw As New BackgroundWorker
+
+        AddHandler bgw.DoWork, Sub(sender As Object, e As DoWorkEventArgs)
+                                   If Not ping.CheckForInternetConnection() Then
+                                       MessageBox.Show("There is a problem with you internet connection. Please try again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                                       Exit Sub
+                                   End If
+                                   Try
+                                       Dim res As FirebaseResponse = firebase.client.Get("BakeITHappen/Products/")
+                                       If res.Body <> "null" Then
+                                           productsData = res.ResultAs(Of Dictionary(Of String, ProductDataModel))()
+                                       End If
+                                   Catch ex As Exception
+                                       Exit Sub
+                                   End Try
+                               End Sub
+
+        AddHandler bgw.RunWorkerCompleted, Sub(sender As Object, e As RunWorkerCompletedEventArgs)
+                                               For Each product In productsData
+                                                   AddProductToFlowLayoutPanel(product.Value)
+                                               Next
+                                               Cursor = Cursors.Default
+                                           End Sub
+        bgw.RunWorkerAsync()
     End Sub
 
     Private Sub AddProductToFlowLayoutPanel(product As ProductDataModel)
         Dim pictureBox As New PictureBox With {
             .SizeMode = PictureBoxSizeMode.StretchImage,
-            .Width = 180,
+            .Width = 200,
             .Height = 250,
             .Cursor = Cursors.Hand,
             .Tag = product
@@ -45,7 +65,8 @@ Public Class Cashier_Order
             .TextAlign = ContentAlignment.MiddleCenter
         }
         Dim productName As New Label With {
-            .Width = 180,
+            .Width = 200,
+            .TextAlign = ContentAlignment.MiddleCenter,
             .Text = product.ProductName,
             .BackColor = ColorTranslator.FromHtml("#602A0F"),
             .ForeColor = Color.White,
@@ -70,6 +91,7 @@ Public Class Cashier_Order
         Dim productData As ProductDataModel = DirectCast(clickedPictureBox.Tag, ProductDataModel)
         Ordering.GetProductData(productData)
         Ordering.Show()
+
     End Sub
 
     Private Sub SearchButton_Click(sender As Object, e As EventArgs) Handles SearchButton.Click
@@ -94,19 +116,19 @@ Public Class Cashier_Order
         Dim SortMethod = ComboBox1.SelectedItem.ToString()
         If SortMethod = "Alphabetical" Then
             sortedProducts = productsData.OrderBy(Function(p) p.Value.ProductName)
-            SortProducts(sortedProducts)
+            ShowProducts(sortedProducts)
         End If
         If SortMethod = "Price Low" Then
             sortedProducts = productsData.OrderBy(Function(p) p.Value.ProductPrice)
-            SortProducts(sortedProducts)
+            ShowProducts(sortedProducts)
         End If
         If SortMethod = "Price High" Then
             sortedProducts = productsData.OrderByDescending(Function(p) p.Value.ProductPrice)
-            SortProducts(sortedProducts)
+            ShowProducts(sortedProducts)
         End If
     End Sub
 
-    Private Sub SortProducts(sortedProduct As IOrderedEnumerable(Of KeyValuePair(Of String, ProductDataModel)))
+    Private Sub ShowProducts(sortedProduct As IOrderedEnumerable(Of KeyValuePair(Of String, ProductDataModel)))
         FlowLayoutPanel1.Controls.Clear()
         Cursor = Cursors.WaitCursor
         For Each product In sortedProduct
@@ -117,7 +139,7 @@ Public Class Cashier_Order
 
     Private Sub clear_btn_Click(sender As Object, e As EventArgs) Handles clear_btn.Click
         DataGridView1.Rows.Clear()
-
+        TextBox1.Clear()
     End Sub
 
     Private Sub finish_btn_Click(sender As Object, e As EventArgs) Handles finish_btn.Click
@@ -134,10 +156,11 @@ Public Class Cashier_Order
 
 
     Public Sub ProceedTransaction()
-        Dim totalDailySale As Integer = 0
-        Dim transaction As String = $"{Now.Day}{Now.Hour}{Now.Minute}{Now.Second}"
-        For Each row As DataGridViewRow In DataGridView1.Rows
-            Dim order As New OrderDataModel With {
+        If ping.CheckForInternetConnection() Then
+            Dim totalDailySale As Integer = 0
+            Dim transaction As String = $"{Now.Day}{Now.Hour}{Now.Minute}{Now.Second}"
+            For Each row As DataGridViewRow In DataGridView1.Rows
+                Dim order As New OrderDataModel With {
                 .TransacID = transaction,
                 .ProductID = row.Cells(0).Value.ToString(),
                 .ProductName = row.Cells(1).Value.ToString(),
@@ -147,27 +170,32 @@ Public Class Cashier_Order
                 .ProductMessage = ProdMsg,
                 .ProductTotal = row.Cells(4).Value.ToString()
             }
-            firebase.client.Set($"BakeITHappen/Orders/{curDay}/{transaction}/{row.Index}", order)
-        Next
-        Try
-            Dim response As FirebaseResponse = firebase.client.Get($"BakeITHappen/Sales/Daily Sales/{curDay}/")
-            If response.Body <> "null" Then
-                totalDailySale = response.ResultAs(Of Integer)()
+                firebase.client.Set($"BakeITHappen/Orders/{curDay}/{transaction}/{row.Index}", order)
+            Next
+            Payment.SetTransacID(transaction)
+            Try
+                Dim response As FirebaseResponse = firebase.client.Get($"BakeITHappen/Sales/Daily Sales/{curDay}/")
+                If response.Body <> "null" Then
+                    totalDailySale = response.ResultAs(Of Integer)()
+                End If
+            Catch ex As Exception
+                Return
+            End Try
+
+            For Each row As DataGridViewRow In DataGridView1.Rows
+                totalDailySale += CInt(row.Cells(4).Value)
+            Next
+            firebase.client.Set(Of Integer)($"BakeITHappen/Sales/Daily Sales/{curDay}/", totalDailySale)
+
+
+            Dim overAllSaleData As Decimal = firebase.client.Get($"BakeITHappen/Sales/Overall Sales/").ResultAs(Of Integer)()
+            If Val(TextBox1.Text) > 0 Then
+                overAllSaleData += Val(TextBox1.Text)
+                firebase.client.Set(Of Integer)($"BakeITHappen/Sales/Overall Sales/", overAllSaleData)
             End If
-        Catch ex As Exception
-            Return
-        End Try
 
-        For Each row As DataGridViewRow In DataGridView1.Rows
-            totalDailySale += CInt(row.Cells(4).Value)
-        Next
-        firebase.client.Set(Of Integer)($"BakeITHappen/Sales/Daily Sales/{curDay}/", totalDailySale)
-
-
-        Dim overAllSaleData As Decimal = firebase.client.Get($"BakeITHappen/Sales/Overall Sales/").ResultAs(Of Integer)()
-        If Val(TextBox1.Text) > 0 Then
-            overAllSaleData += Val(TextBox1.Text)
-            firebase.client.Set(Of Integer)($"BakeITHappen/Sales/Overall Sales/", overAllSaleData)
+        Else
+            MessageBox.Show("There is a problem with you internet connection. Please try again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If
 
     End Sub
@@ -187,6 +215,10 @@ Public Class Cashier_Order
 
 
     Public Sub DecreaseProductStock()
+        If Not ping.CheckForInternetConnection() Then
+            MessageBox.Show("There is a problem with you internet connection. Please try again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Exit Sub
+        End If
         Try
             For Each row As DataGridViewRow In DataGridView1.Rows
                 Dim response As FirebaseResponse = firebase.client.Get($"BakeITHappen/Products/{row.Cells(0).Value}/ProductStock")
@@ -197,6 +229,23 @@ Public Class Cashier_Order
         Catch ex As Exception
             Exit Sub
         End Try
+
+    End Sub
+
+    Public Function getDatainDataGrid()
+        Return DataGridView1.DataSource
+    End Function
+
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        time_txt.Text = DateTime.Now.ToString("hh:mm:ss tt")
+        date_txt.Text = DateTime.Now.ToString("MMMM dd, yyyy")
+    End Sub
+
+    Private Sub Cashier_Order_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        Cashier_Interface.Show()
+    End Sub
+
+    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
 
     End Sub
 End Class

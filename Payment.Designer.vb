@@ -23,9 +23,9 @@ Partial Class Payment
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.BackButton = New System.Windows.Forms.Button()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.Total_txt = New System.Windows.Forms.TextBox()
+        Me.cash_txt = New System.Windows.Forms.TextBox()
+        Me.change_txt = New System.Windows.Forms.TextBox()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
@@ -37,47 +37,48 @@ Partial Class Payment
         Me.BackButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BackButton.ForeColor = System.Drawing.Color.White
         Me.BackButton.Location = New System.Drawing.Point(9, 8)
-        Me.BackButton.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.BackButton.Margin = New System.Windows.Forms.Padding(2)
         Me.BackButton.Name = "BackButton"
         Me.BackButton.Size = New System.Drawing.Size(28, 24)
         Me.BackButton.TabIndex = 0
         Me.BackButton.UseVisualStyleBackColor = False
         '
-        'TextBox1
+        'Total_txt
         '
-        Me.TextBox1.Font = New System.Drawing.Font("Arial Rounded MT Bold", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.ForeColor = System.Drawing.Color.SaddleBrown
-        Me.TextBox1.Location = New System.Drawing.Point(95, 97)
-        Me.TextBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
-        Me.TextBox1.Multiline = True
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(296, 22)
-        Me.TextBox1.TabIndex = 1
-        Me.TextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.Total_txt.Font = New System.Drawing.Font("Arial Rounded MT Bold", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Total_txt.ForeColor = System.Drawing.Color.SaddleBrown
+        Me.Total_txt.Location = New System.Drawing.Point(95, 97)
+        Me.Total_txt.Margin = New System.Windows.Forms.Padding(2)
+        Me.Total_txt.Multiline = True
+        Me.Total_txt.Name = "Total_txt"
+        Me.Total_txt.Size = New System.Drawing.Size(296, 22)
+        Me.Total_txt.TabIndex = 1
+        Me.Total_txt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'TextBox2
+        'cash_txt
         '
-        Me.TextBox2.Font = New System.Drawing.Font("Arial Rounded MT Bold", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox2.ForeColor = System.Drawing.Color.SaddleBrown
-        Me.TextBox2.Location = New System.Drawing.Point(95, 154)
-        Me.TextBox2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
-        Me.TextBox2.Multiline = True
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(296, 22)
-        Me.TextBox2.TabIndex = 2
-        Me.TextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.cash_txt.Font = New System.Drawing.Font("Arial Rounded MT Bold", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cash_txt.ForeColor = System.Drawing.Color.SaddleBrown
+        Me.cash_txt.Location = New System.Drawing.Point(95, 154)
+        Me.cash_txt.Margin = New System.Windows.Forms.Padding(2)
+        Me.cash_txt.Multiline = True
+        Me.cash_txt.Name = "cash_txt"
+        Me.cash_txt.Size = New System.Drawing.Size(296, 22)
+        Me.cash_txt.TabIndex = 2
+        Me.cash_txt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'TextBox3
+        'change_txt
         '
-        Me.TextBox3.Font = New System.Drawing.Font("Arial Rounded MT Bold", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox3.ForeColor = System.Drawing.Color.SaddleBrown
-        Me.TextBox3.Location = New System.Drawing.Point(95, 207)
-        Me.TextBox3.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
-        Me.TextBox3.Multiline = True
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(296, 22)
-        Me.TextBox3.TabIndex = 3
-        Me.TextBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.change_txt.Font = New System.Drawing.Font("Arial Rounded MT Bold", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.change_txt.ForeColor = System.Drawing.Color.SaddleBrown
+        Me.change_txt.Location = New System.Drawing.Point(95, 207)
+        Me.change_txt.Margin = New System.Windows.Forms.Padding(2)
+        Me.change_txt.Multiline = True
+        Me.change_txt.Name = "change_txt"
+        Me.change_txt.ReadOnly = True
+        Me.change_txt.Size = New System.Drawing.Size(296, 22)
+        Me.change_txt.TabIndex = 3
+        Me.change_txt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Button2
         '
@@ -86,7 +87,7 @@ Partial Class Payment
         Me.Button2.Font = New System.Drawing.Font("Arial Rounded MT Bold", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.ForeColor = System.Drawing.Color.White
         Me.Button2.Location = New System.Drawing.Point(185, 254)
-        Me.Button2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(2)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(119, 23)
         Me.Button2.TabIndex = 4
@@ -101,13 +102,13 @@ Partial Class Payment
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(487, 310)
         Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.TextBox3)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.change_txt)
+        Me.Controls.Add(Me.cash_txt)
+        Me.Controls.Add(Me.Total_txt)
         Me.Controls.Add(Me.BackButton)
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "Payment"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Payment"
@@ -117,8 +118,8 @@ Partial Class Payment
     End Sub
 
     Friend WithEvents BackButton As Button
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents Total_txt As TextBox
+    Friend WithEvents cash_txt As TextBox
+    Friend WithEvents change_txt As TextBox
     Friend WithEvents Button2 As Button
 End Class

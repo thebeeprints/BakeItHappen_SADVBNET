@@ -44,7 +44,7 @@ Partial Class Stocks
         Me.Back.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Back.ForeColor = System.Drawing.Color.SaddleBrown
         Me.Back.Location = New System.Drawing.Point(11, 12)
-        Me.Back.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Back.Margin = New System.Windows.Forms.Padding(2)
         Me.Back.Name = "Back"
         Me.Back.Size = New System.Drawing.Size(32, 26)
         Me.Back.TabIndex = 0
@@ -60,7 +60,7 @@ Partial Class Stocks
         Me.Panel1.Controls.Add(Me.TextBox1)
         Me.Panel1.Controls.Add(Me.Search)
         Me.Panel1.Location = New System.Drawing.Point(-2, 51)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(863, 32)
         Me.Panel1.TabIndex = 1
@@ -72,7 +72,7 @@ Partial Class Stocks
         Me.BacktoUpdating.Font = New System.Drawing.Font("Arial Rounded MT Bold", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BacktoUpdating.ForeColor = System.Drawing.Color.White
         Me.BacktoUpdating.Location = New System.Drawing.Point(673, 5)
-        Me.BacktoUpdating.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.BacktoUpdating.Margin = New System.Windows.Forms.Padding(2)
         Me.BacktoUpdating.Name = "BacktoUpdating"
         Me.BacktoUpdating.Size = New System.Drawing.Size(172, 22)
         Me.BacktoUpdating.TabIndex = 8
@@ -86,7 +86,7 @@ Partial Class Stocks
         Me.ViewUpdated.Font = New System.Drawing.Font("Arial Rounded MT Bold", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ViewUpdated.ForeColor = System.Drawing.Color.White
         Me.ViewUpdated.Location = New System.Drawing.Point(494, 5)
-        Me.ViewUpdated.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.ViewUpdated.Margin = New System.Windows.Forms.Padding(2)
         Me.ViewUpdated.Name = "ViewUpdated"
         Me.ViewUpdated.Size = New System.Drawing.Size(172, 22)
         Me.ViewUpdated.TabIndex = 7
@@ -100,7 +100,7 @@ Partial Class Stocks
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Items.AddRange(New Object() {"ID", "Alphabetical", "Price Low", "Price High"})
         Me.ComboBox1.Location = New System.Drawing.Point(250, 5)
-        Me.ComboBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.ComboBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(182, 24)
         Me.ComboBox1.TabIndex = 6
@@ -123,7 +123,7 @@ Partial Class Stocks
         Me.TextBox1.Font = New System.Drawing.Font("Arial Rounded MT Bold", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox1.ForeColor = System.Drawing.Color.SaddleBrown
         Me.TextBox1.Location = New System.Drawing.Point(10, 6)
-        Me.TextBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.TextBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.TextBox1.Multiline = True
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(132, 23)
@@ -138,7 +138,7 @@ Partial Class Stocks
         Me.Search.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Search.ForeColor = System.Drawing.Color.SaddleBrown
         Me.Search.Location = New System.Drawing.Point(147, 6)
-        Me.Search.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Search.Margin = New System.Windows.Forms.Padding(2)
         Me.Search.Name = "Search"
         Me.Search.Size = New System.Drawing.Size(21, 19)
         Me.Search.TabIndex = 3
@@ -148,7 +148,7 @@ Partial Class Stocks
         '
         Me.Panel2.BackColor = System.Drawing.Color.White
         Me.Panel2.Location = New System.Drawing.Point(0, 84)
-        Me.Panel2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Panel2.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(861, 256)
         Me.Panel2.TabIndex = 2
@@ -191,7 +191,8 @@ Partial Class Stocks
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Back)
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "Stocks"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Stocks"

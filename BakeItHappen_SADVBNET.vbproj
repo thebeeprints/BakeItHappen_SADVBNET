@@ -237,6 +237,7 @@
     <Compile Include="Payment.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Ping.vb" />
     <Compile Include="PrintReceipt.Designer.vb">
       <DependentUpon>PrintReceipt.vb</DependentUpon>
     </Compile>
@@ -258,6 +259,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SalesDataModel.vb" />
+    <Compile Include="AdminSettings.Designer.vb">
+      <DependentUpon>AdminSettings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AdminSettings.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="SignIn.Designer.vb">
       <DependentUpon>SignIn.vb</DependentUpon>
     </Compile>
@@ -276,6 +283,7 @@
     <Compile Include="Test.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="TransactionDataModel.vb" />
     <Compile Include="UpdateProduct.Designer.vb">
       <DependentUpon>UpdateProduct.vb</DependentUpon>
     </Compile>
@@ -283,6 +291,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UserDataModel.vb" />
+    <Compile Include="ViewAccounts.Designer.vb">
+      <DependentUpon>ViewAccounts.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ViewAccounts.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AdminDashboard.resx">
@@ -336,6 +350,9 @@
     <EmbeddedResource Include="Sales.resx">
       <DependentUpon>Sales.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AdminSettings.resx">
+      <DependentUpon>AdminSettings.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SignIn.resx">
       <DependentUpon>SignIn.vb</DependentUpon>
     </EmbeddedResource>
@@ -347,6 +364,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateProduct.resx">
       <DependentUpon>UpdateProduct.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewAccounts.resx">
+      <DependentUpon>ViewAccounts.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -511,6 +531,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ViewAccounts %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LogOut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ViewAccounts %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <Import Project="packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />

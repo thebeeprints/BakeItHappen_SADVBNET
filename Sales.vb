@@ -1,8 +1,8 @@
 ﻿Public Class Sales
     Dim firebase As New FireBaseApp()
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        AdminDashboard.Show()
         Me.Hide()
+        AdminInterface.Show()
     End Sub
 
     Private Sub Sales_Load(sender As Object, e As EventArgs) Handles MyBase.Load

@@ -45,7 +45,7 @@ Partial Class Sales
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.ForeColor = System.Drawing.Color.SaddleBrown
         Me.Button1.Location = New System.Drawing.Point(10, 11)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(2)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(33, 27)
         Me.Button1.TabIndex = 0
@@ -58,7 +58,7 @@ Partial Class Sales
         Me.Panel1.Controls.Add(Me.DailySaleValue)
         Me.Panel1.Controls.Add(Me.DailySale)
         Me.Panel1.Location = New System.Drawing.Point(98, 89)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(322, 243)
         Me.Panel1.TabIndex = 1
@@ -69,7 +69,7 @@ Partial Class Sales
         Me.PictureBox1.BackgroundImage = Global.BakeItHappen_SADVBNET.My.Resources.Resources.DailySale__1_
         Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PictureBox1.Location = New System.Drawing.Point(120, 57)
-        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(80, 70)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -107,7 +107,7 @@ Partial Class Sales
         Me.Panel2.Controls.Add(Me.OverallSaleValue)
         Me.Panel2.Controls.Add(Me.OverallSale)
         Me.Panel2.Location = New System.Drawing.Point(436, 89)
-        Me.Panel2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Panel2.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(322, 243)
         Me.Panel2.TabIndex = 2
@@ -118,7 +118,7 @@ Partial Class Sales
         Me.PictureBox2.BackgroundImage = Global.BakeItHappen_SADVBNET.My.Resources.Resources.OverallSale__1_
         Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PictureBox2.Location = New System.Drawing.Point(132, 63)
-        Me.PictureBox2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.PictureBox2.Margin = New System.Windows.Forms.Padding(2)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(80, 63)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -161,8 +161,9 @@ Partial Class Sales
         Me.Controls.Add(Me.Button1)
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "Sales"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Sales"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()

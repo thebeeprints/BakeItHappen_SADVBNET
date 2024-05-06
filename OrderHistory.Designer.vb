@@ -23,10 +23,10 @@ Partial Class OrderHistory
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.Back = New System.Windows.Forms.Button()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
-        Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -46,6 +46,13 @@ Partial Class OrderHistory
         Me.DataGridView1.RowTemplate.Height = 24
         Me.DataGridView1.Size = New System.Drawing.Size(128, 281)
         Me.DataGridView1.TabIndex = 0
+        '
+        'ID
+        '
+        Me.ID.HeaderText = "Transaction ID"
+        Me.ID.MinimumWidth = 6
+        Me.ID.Name = "ID"
+        Me.ID.Width = 125
         '
         'DataGridView2
         '
@@ -67,6 +74,7 @@ Partial Class OrderHistory
         Me.Back.BackColor = System.Drawing.Color.Transparent
         Me.Back.BackgroundImage = Global.BakeItHappen_SADVBNET.My.Resources.Resources.Arrow1
         Me.Back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Back.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Back.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Back.ForeColor = System.Drawing.Color.SaddleBrown
         Me.Back.Location = New System.Drawing.Point(6, 10)
@@ -84,13 +92,6 @@ Partial Class OrderHistory
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(128, 20)
         Me.DateTimePicker1.TabIndex = 3
-        '
-        'ID
-        '
-        Me.ID.HeaderText = "Transaction ID"
-        Me.ID.MinimumWidth = 6
-        Me.ID.Name = "ID"
-        Me.ID.Width = 125
         '
         'OrderHistory
         '
