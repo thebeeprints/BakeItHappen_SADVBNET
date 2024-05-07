@@ -47,7 +47,7 @@ Public Class Cashier_Order
             .TextAlign = ContentAlignment.MiddleCenter
         }
         Dim productName As New Label With {
-            .Width = 200,
+            .Width = pictureBox.Width, '200
             .TextAlign = ContentAlignment.MiddleCenter,
             .Text = product.ProductName,
             .BackColor = ColorTranslator.FromHtml("#602A0F"),
@@ -206,6 +206,12 @@ Public Class Cashier_Order
                 Dim response As FirebaseResponse = firebase.client.Get($"BakeITHappen/Products/{row.Cells(0).Value}/ProductStock")
                 Dim currentStock As Integer = response.ResultAs(Of Integer)()
                 Dim updatedStock As Integer = currentStock - row.Cells(3).Value
+                Dim productID As String = row.Cells(0).Value
+                Dim quantity As Integer = CInt(row.Cells(3).Value)
+                If productsData.ContainsKey(productID) Then
+                    Dim product As ProductDataModel = productsData(productID)
+                    product.ProductStock = updatedStock
+                End If
                 firebase.client.Set($"BakeITHappen/Products/{row.Cells(0).Value}/ProductStock", updatedStock)
             Next
         Catch ex As Exception

@@ -22,6 +22,7 @@ Partial Class SignIn
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(SignIn))
         Me.username_txt = New System.Windows.Forms.TextBox()
         Me.Sign_In = New System.Windows.Forms.Button()
         Me.password_txt = New System.Windows.Forms.TextBox()
@@ -92,10 +93,11 @@ Partial Class SignIn
         Me.Controls.Add(Me.Sign_In)
         Me.Controls.Add(Me.username_txt)
         Me.DoubleBuffered = True
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Name = "SignIn"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "SignIn"
+        Me.Text = "BakeITHappen"
         CType(Me.HideButton, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

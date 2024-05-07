@@ -23,4 +23,9 @@
         Sales.Show()
         AdminInterface.Hide()
     End Sub
+
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        time_txt.Text = DateTime.Now.ToString("hh:mm:ss tt")
+        date_txt.Text = DateTime.Now.ToString("MMMM dd, yyyy")
+    End Sub
 End Class

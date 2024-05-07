@@ -4,7 +4,6 @@
     Dim imgconverter As New ImageBase64Converter()
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Application.Restart()
-
     End Sub
 
     Private Sub AdminSettings_Load(sender As Object, e As EventArgs) Handles MyBase.Load

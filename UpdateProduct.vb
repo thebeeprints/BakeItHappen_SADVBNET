@@ -78,7 +78,7 @@ Public Class UpdateProduct
             .TextAlign = ContentAlignment.MiddleCenter
         }
         Dim productName As New Label With {
-            .Width = 230,
+            .Width = pictureBox.Width,
             .Text = product.ProductName,
             .BackColor = ColorTranslator.FromHtml("#602A0F"),
             .ForeColor = Color.White,

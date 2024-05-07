@@ -22,6 +22,7 @@ Partial Class Cashier_Interface
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Cashier_Interface))
         Me.SettingsButton = New System.Windows.Forms.Button()
         Me.OrderButton = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
@@ -34,10 +35,10 @@ Partial Class Cashier_Interface
         Me.SettingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.SettingsButton.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SettingsButton.ForeColor = System.Drawing.Color.Transparent
-        Me.SettingsButton.Location = New System.Drawing.Point(792, 3)
-        Me.SettingsButton.Margin = New System.Windows.Forms.Padding(2)
+        Me.SettingsButton.Location = New System.Drawing.Point(1056, 4)
+        Me.SettingsButton.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.SettingsButton.Name = "SettingsButton"
-        Me.SettingsButton.Size = New System.Drawing.Size(138, 61)
+        Me.SettingsButton.Size = New System.Drawing.Size(184, 75)
         Me.SettingsButton.TabIndex = 1
         Me.SettingsButton.Text = "SETTINGS"
         Me.SettingsButton.UseVisualStyleBackColor = False
@@ -49,36 +50,38 @@ Partial Class Cashier_Interface
         Me.OrderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.OrderButton.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.OrderButton.ForeColor = System.Drawing.Color.Transparent
-        Me.OrderButton.Location = New System.Drawing.Point(655, 3)
-        Me.OrderButton.Margin = New System.Windows.Forms.Padding(2)
+        Me.OrderButton.Location = New System.Drawing.Point(873, 4)
+        Me.OrderButton.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.OrderButton.Name = "OrderButton"
-        Me.OrderButton.Size = New System.Drawing.Size(138, 61)
+        Me.OrderButton.Size = New System.Drawing.Size(184, 75)
         Me.OrderButton.TabIndex = 2
         Me.OrderButton.Text = "ORDERS"
         Me.OrderButton.UseVisualStyleBackColor = False
         '
         'Panel1
         '
-        Me.Panel1.Location = New System.Drawing.Point(0, 69)
+        Me.Panel1.Location = New System.Drawing.Point(0, 85)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1019, 463)
+        Me.Panel1.Size = New System.Drawing.Size(1359, 570)
         Me.Panel1.TabIndex = 3
         '
         'Cashier_Interface
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.BakeItHappen_SADVBNET.My.Resources.Resources.CashierInterface
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1018, 544)
+        Me.ClientSize = New System.Drawing.Size(1357, 670)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.OrderButton)
         Me.Controls.Add(Me.SettingsButton)
         Me.DoubleBuffered = True
-        Me.Margin = New System.Windows.Forms.Padding(2)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Name = "Cashier_Interface"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Cashier_Interface"
+        Me.Text = "BakeITHappen"
         Me.ResumeLayout(False)
 
     End Sub

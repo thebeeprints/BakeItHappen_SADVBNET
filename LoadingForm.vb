@@ -20,7 +20,7 @@ Public Class LoadingForm
         End If
     End Sub
 
-    Private Sub LoadProducts()
+    Public Sub LoadProducts()
         If Not ping.CheckForInternetConnection() Then
             MessageBox.Show("There is a problem with you internet connection. Please try again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Exit Sub
