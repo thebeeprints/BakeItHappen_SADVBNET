@@ -28,7 +28,6 @@
             MatchPass_txt.Visible = False
             Dim IDGen = firebase.client.Get("BakeITHappen/LatestID").ResultAs(Of Integer)()
             IDGen += 1
-            MessageBox.Show(IDGen)
             Dim IMGDATA As String = IMGtoB64.ImgToB64(Avatar_PcBx)
 
             Dim existingUser = firebase.client.Get($"BakeITHappen/Users/{Username_txt.Text.ToLower()}")

@@ -7,43 +7,27 @@ Public Class Cashier_Order
     Dim firebase As New FireBaseApp()
     Dim imgconverter As New ImageBase64Converter()
     Dim productsData As Dictionary(Of String, ProductDataModel)
-    Dim orderList As New List(Of OrderDataModel)()
     Public curDay As String = $"{Now.Month}{Now.Day:D2}{Now.Year}"
 
 
     Public ProdMsg As String
     Public ProdDesign As String
     Private Sub Cashier_Order_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        productsData = LoadingForm.GetProductsData()
+        If productsData Is Nothing Then
+            MessageBox.Show("There is a problem with you internet connection. Please try again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Exit Sub
+        End If
         Cursor = Cursors.WaitCursor
         LoadProducts()
         Cursor = Cursors.Default
         Search_txt.TabIndex = 0
     End Sub
     Private Sub LoadProducts()
-        Dim bgw As New BackgroundWorker
-
-        AddHandler bgw.DoWork, Sub(sender As Object, e As DoWorkEventArgs)
-                                   If Not ping.CheckForInternetConnection() Then
-                                       MessageBox.Show("There is a problem with you internet connection. Please try again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                                       Exit Sub
-                                   End If
-                                   Try
-                                       Dim res As FirebaseResponse = firebase.client.Get("BakeITHappen/Products/")
-                                       If res.Body <> "null" Then
-                                           productsData = res.ResultAs(Of Dictionary(Of String, ProductDataModel))()
-                                       End If
-                                   Catch ex As Exception
-                                       Exit Sub
-                                   End Try
-                               End Sub
-
-        AddHandler bgw.RunWorkerCompleted, Sub(sender As Object, e As RunWorkerCompletedEventArgs)
-                                               For Each product In productsData
-                                                   AddProductToFlowLayoutPanel(product.Value)
-                                               Next
-                                               Cursor = Cursors.Default
-                                           End Sub
-        bgw.RunWorkerAsync()
+        For Each product In productsData
+            AddProductToFlowLayoutPanel(product.Value)
+        Next
+        Cursor = Cursors.Default
     End Sub
 
     Private Sub AddProductToFlowLayoutPanel(product As ProductDataModel)

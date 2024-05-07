@@ -6,6 +6,8 @@ Public Class OrderHistory
     Private previousTransactIDs As New List(Of String)
     Dim newTarget As String
     Private Sub Back_Click(sender As Object, e As EventArgs) Handles Back.Click
+        DataGridView2.DataSource = Nothing
+        DataGridView2.Rows.Clear()
         AdminInterface.Show()
         Me.Hide()
     End Sub
@@ -28,13 +30,6 @@ Public Class OrderHistory
         For Each transactID As String In transactIDs
             DataGridView1.Rows.Add(transactID)
         Next
-
-
-        'Dim newTransID = transactIDs.Except(previousTransactIDs).ToList()
-        'For Each transactID As String In newTransID
-        '    DataGridView1.Rows.Add(transactID)
-        'Next
-        'previousTransactIDs = transactIDs
 
     End Sub
     Private Sub DataGridView1_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellDoubleClick

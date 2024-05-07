@@ -33,6 +33,13 @@ Partial Class PrintReceipt
         Me.ProdTotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
         Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
+        Me.CashierName_txt = New System.Windows.Forms.Label()
+        Me.CashierID_txt = New System.Windows.Forms.Label()
+        Me.date_txt = New System.Windows.Forms.Label()
+        Me.time_txt = New System.Windows.Forms.Label()
+        Me.total_txt = New System.Windows.Forms.Label()
+        Me.cash_txt = New System.Windows.Forms.Label()
+        Me.change_txt = New System.Windows.Forms.Label()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -126,6 +133,76 @@ Partial Class PrintReceipt
         Me.PrintPreviewDialog1.Name = "PrintPreviewDialog1"
         Me.PrintPreviewDialog1.Visible = False
         '
+        'CashierName_txt
+        '
+        Me.CashierName_txt.AutoSize = True
+        Me.CashierName_txt.BackColor = System.Drawing.Color.Transparent
+        Me.CashierName_txt.Font = New System.Drawing.Font("Arial Rounded MT Bold", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CashierName_txt.Location = New System.Drawing.Point(183, 166)
+        Me.CashierName_txt.Name = "CashierName_txt"
+        Me.CashierName_txt.Size = New System.Drawing.Size(0, 20)
+        Me.CashierName_txt.TabIndex = 2
+        '
+        'CashierID_txt
+        '
+        Me.CashierID_txt.AutoSize = True
+        Me.CashierID_txt.BackColor = System.Drawing.Color.Transparent
+        Me.CashierID_txt.Font = New System.Drawing.Font("Arial Rounded MT Bold", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CashierID_txt.Location = New System.Drawing.Point(83, 198)
+        Me.CashierID_txt.Name = "CashierID_txt"
+        Me.CashierID_txt.Size = New System.Drawing.Size(0, 20)
+        Me.CashierID_txt.TabIndex = 3
+        '
+        'date_txt
+        '
+        Me.date_txt.AutoSize = True
+        Me.date_txt.BackColor = System.Drawing.Color.Transparent
+        Me.date_txt.Font = New System.Drawing.Font("Arial Rounded MT Bold", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.date_txt.Location = New System.Drawing.Point(430, 166)
+        Me.date_txt.Name = "date_txt"
+        Me.date_txt.Size = New System.Drawing.Size(0, 20)
+        Me.date_txt.TabIndex = 4
+        '
+        'time_txt
+        '
+        Me.time_txt.AutoSize = True
+        Me.time_txt.BackColor = System.Drawing.Color.Transparent
+        Me.time_txt.Font = New System.Drawing.Font("Arial Rounded MT Bold", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.time_txt.Location = New System.Drawing.Point(431, 198)
+        Me.time_txt.Name = "time_txt"
+        Me.time_txt.Size = New System.Drawing.Size(0, 20)
+        Me.time_txt.TabIndex = 5
+        '
+        'total_txt
+        '
+        Me.total_txt.AutoSize = True
+        Me.total_txt.BackColor = System.Drawing.Color.Transparent
+        Me.total_txt.Font = New System.Drawing.Font("Arial Rounded MT Bold", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.total_txt.Location = New System.Drawing.Point(270, 481)
+        Me.total_txt.Name = "total_txt"
+        Me.total_txt.Size = New System.Drawing.Size(0, 20)
+        Me.total_txt.TabIndex = 6
+        '
+        'cash_txt
+        '
+        Me.cash_txt.AutoSize = True
+        Me.cash_txt.BackColor = System.Drawing.Color.Transparent
+        Me.cash_txt.Font = New System.Drawing.Font("Arial Rounded MT Bold", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cash_txt.Location = New System.Drawing.Point(270, 522)
+        Me.cash_txt.Name = "cash_txt"
+        Me.cash_txt.Size = New System.Drawing.Size(0, 20)
+        Me.cash_txt.TabIndex = 7
+        '
+        'change_txt
+        '
+        Me.change_txt.AutoSize = True
+        Me.change_txt.BackColor = System.Drawing.Color.Transparent
+        Me.change_txt.Font = New System.Drawing.Font("Arial Rounded MT Bold", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.change_txt.Location = New System.Drawing.Point(270, 565)
+        Me.change_txt.Name = "change_txt"
+        Me.change_txt.Size = New System.Drawing.Size(0, 20)
+        Me.change_txt.TabIndex = 8
+        '
         'PrintReceipt
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -133,6 +210,13 @@ Partial Class PrintReceipt
         Me.BackgroundImage = Global.BakeItHappen_SADVBNET.My.Resources.Resources.PrintReceipt
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(581, 703)
+        Me.Controls.Add(Me.change_txt)
+        Me.Controls.Add(Me.cash_txt)
+        Me.Controls.Add(Me.total_txt)
+        Me.Controls.Add(Me.time_txt)
+        Me.Controls.Add(Me.date_txt)
+        Me.Controls.Add(Me.CashierID_txt)
+        Me.Controls.Add(Me.CashierName_txt)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Button1)
         Me.DoubleBuffered = True
@@ -143,6 +227,7 @@ Partial Class PrintReceipt
         Me.Text = "PrintReceipt"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -154,4 +239,11 @@ Partial Class PrintReceipt
     Friend WithEvents ProdPrice As DataGridViewTextBoxColumn
     Friend WithEvents ProdQuant As DataGridViewTextBoxColumn
     Friend WithEvents ProdTotal As DataGridViewTextBoxColumn
+    Friend WithEvents CashierName_txt As Label
+    Friend WithEvents CashierID_txt As Label
+    Friend WithEvents date_txt As Label
+    Friend WithEvents time_txt As Label
+    Friend WithEvents total_txt As Label
+    Friend WithEvents cash_txt As Label
+    Friend WithEvents change_txt As Label
 End Class

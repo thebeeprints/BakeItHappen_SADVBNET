@@ -7,11 +7,22 @@ Public Class PrintReceipt
         PrintDocument1.DefaultPageSettings.PaperSize = New PaperSize("Custom", Me.Width, Me.Height)
         PrintPreviewDialog1.ClientSize = Me.Size
         PrintPreviewDialog1.ShowDialog()
+        For Each ctrl As Control In Me.Controls
+            If TypeOf ctrl Is TextBox Then CType(ctrl, TextBox).Clear()
+        Next
+        Payment.ClearTxtBox()
         Me.Close()
     End Sub
 
     Private Sub PrintReceipt_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         DataGridView1.ClearSelection()
+        CashierName_txt.Text = SignIn.getFullName
+        CashierID_txt.Text = Payment.GetTransacID
+        date_txt.Text = Now.ToString("MMMM dd, yyyy")
+        time_txt.Text = Now.ToString("HH:mm")
+        total_txt.Text = Payment.Total_txt.Text
+        cash_txt.Text = Payment.cash_txt.Text
+        change_txt.Text = Payment.change_txt.Text
     End Sub
 
 

@@ -28,11 +28,18 @@ Public Class Payment
             PrintReceipt.Show()
             Cashier_Order.DataGridView1.Rows.Clear()
             Cashier_Order.TextBox1.Clear()
-            Me.Close()
+            Total_txt.Clear()
+            cash_txt.Clear()
+            change_txt.Clear()
+            Me.Hide()
         End If
 
     End Sub
-
+    Public Sub ClearTxtBox()
+        For Each ctrl As Control In Me.Controls
+            If TypeOf ctrl Is TextBox Then CType(ctrl, TextBox).Clear()
+        Next
+    End Sub
     Private Sub saveTransac()
         If ping.CheckForInternetConnection() Then
             Dim payment As New TransactionDataModel() With {

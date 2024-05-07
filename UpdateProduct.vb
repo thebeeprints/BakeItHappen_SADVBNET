@@ -35,44 +35,31 @@ Public Class UpdateProduct
     End Sub
 
     Private Sub BackButton_Click(sender As Object, e As EventArgs) Handles BackButton.Click
-        Me.Hide()
+        Me.Close()
         AdminInterface.Show()
 
     End Sub
 
     Private Sub UpdateProduct_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        If Not ping.CheckForInternetConnection Then
+            MessageBox.Show("There is a problem with you internet connection. Please try again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+        productsData = LoadingForm.GetProductsData()
+        If productsData Is Nothing Then
+            MessageBox.Show("There is a problem with you internet connection. Please try again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Exit Sub
+        End If
         LoadProducts()
 
     End Sub
 
     Private Sub LoadProducts()
-        Dim bgw As New System.ComponentModel.BackgroundWorker
-
-        AddHandler bgw.DoWork, Sub(sender As Object, e As DoWorkEventArgs)
-                                   If Not ping.CheckForInternetConnection() Then
-                                       MessageBox.Show("There is a problem with you internet connection. Please try again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                                       Exit Sub
-                                   End If
-                                   Try
-                                       Dim res As FirebaseResponse = firebase.client.Get("BakeITHappen/Products/")
-                                       If res.Body <> "null" Then
-                                           productsData = res.ResultAs(Of Dictionary(Of String, ProductDataModel))()
-
-                                       End If
-                                   Catch ex As Exception
-                                       Exit Sub
-                                   End Try
-                               End Sub
-
-        AddHandler bgw.RunWorkerCompleted, Sub(sender As Object, e As RunWorkerCompletedEventArgs)
-                                               For Each product In productsData
-                                                   AddProductToFlowLayoutPanel(product.Value)
-                                               Next
-                                               Label3.Text = $"Total Products: {productsData.Count}"
-                                               Cursor = Cursors.Default
-                                           End Sub
-        bgw.RunWorkerAsync()
-
+        For Each product In productsData
+            AddProductToFlowLayoutPanel(product.Value)
+        Next
+        Label3.Text = $"Total Products: {productsData.Count}"
+        Cursor = Cursors.Default
     End Sub
     Private Sub AddProductToFlowLayoutPanel(product As ProductDataModel)
         Dim pictureBox As New PictureBox With {

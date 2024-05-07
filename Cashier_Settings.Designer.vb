@@ -179,6 +179,7 @@ Partial Class Cashier_Settings
         'Button1
         '
         Me.Button1.BackColor = System.Drawing.Color.MistyRose
+        Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Button1.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.Color.SaddleBrown
         Me.Button1.Location = New System.Drawing.Point(999, 459)

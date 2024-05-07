@@ -162,7 +162,7 @@ Partial Class Cashier_Order
         Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle2
         Me.DataGridView1.EnableHeadersVisualStyles = False
         Me.DataGridView1.Location = New System.Drawing.Point(24, 50)
-        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(4)
         Me.DataGridView1.Name = "DataGridView1"
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(96, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(15, Byte), Integer))
@@ -214,9 +214,10 @@ Partial Class Cashier_Order
         '
         'clear_btn
         '
+        Me.clear_btn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.clear_btn.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.clear_btn.Location = New System.Drawing.Point(24, 265)
-        Me.clear_btn.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.clear_btn.Margin = New System.Windows.Forms.Padding(4)
         Me.clear_btn.Name = "clear_btn"
         Me.clear_btn.Size = New System.Drawing.Size(116, 28)
         Me.clear_btn.TabIndex = 1
@@ -225,9 +226,10 @@ Partial Class Cashier_Order
         '
         'finish_btn
         '
+        Me.finish_btn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.finish_btn.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.finish_btn.Location = New System.Drawing.Point(631, 318)
-        Me.finish_btn.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.finish_btn.Margin = New System.Windows.Forms.Padding(4)
         Me.finish_btn.Name = "finish_btn"
         Me.finish_btn.Size = New System.Drawing.Size(116, 28)
         Me.finish_btn.TabIndex = 2
@@ -237,7 +239,7 @@ Partial Class Cashier_Order
         'TextBox1
         '
         Me.TextBox1.Location = New System.Drawing.Point(613, 267)
-        Me.TextBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TextBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(132, 22)
         Me.TextBox1.TabIndex = 3
@@ -255,9 +257,10 @@ Partial Class Cashier_Order
         '
         'Del_btn
         '
+        Me.Del_btn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Del_btn.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Del_btn.Location = New System.Drawing.Point(148, 265)
-        Me.Del_btn.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Del_btn.Margin = New System.Windows.Forms.Padding(4)
         Me.Del_btn.Name = "Del_btn"
         Me.Del_btn.Size = New System.Drawing.Size(100, 28)
         Me.Del_btn.TabIndex = 5
@@ -285,7 +288,7 @@ Partial Class Cashier_Order
         Me.Panel2.Controls.Add(Me.ComboBox1)
         Me.Panel2.Controls.Add(Me.Label1)
         Me.Panel2.Location = New System.Drawing.Point(0, 101)
-        Me.Panel2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Panel2.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(568, 37)
         Me.Panel2.TabIndex = 6

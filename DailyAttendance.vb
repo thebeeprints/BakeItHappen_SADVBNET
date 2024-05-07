@@ -9,6 +9,21 @@
     End Sub
 
     Private Async Sub TimeIn_Click(sender As Object, e As EventArgs) Handles TimeIn.Click
+        If Not ping.CheckForInternetConnection Then
+            MessageBox.Show("There is a problem with you internet connection. Please try again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Exit Sub
+        End If
+        If AttendanceGrid.Rows.Count > 0 Then
+            For Each row As DataGridViewRow In AttendanceGrid.Rows
+                If row.Cells("EmployeeID").Value = SignIn.getID Then
+                    MessageBox.Show("You have already timed in")
+                    TimeIn.Enabled = False
+                    Me.Hide()
+                    Cashier_Interface.Show()
+                    Exit Sub
+                End If
+            Next
+        End If
         Dim Time As String = $"{Now.Month:00}/{Now.Day:00}/{Now.Year} {Now.Hour:00}:{Now.Minute:00}"
         syncTime = Time
 
